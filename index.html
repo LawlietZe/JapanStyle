@@ -1,0 +1,2764 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Solar Value</title>
+    <link href="/Content/css?v=9wXxAJ0FtmbLc7j175hqS2zKNuC6QbpbkAO0zmLxH0s1" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    
+    
+    <style type="text/css">
+        .base-frame {
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 10px;
+            padding-bottom: 2px;
+        }
+
+        .override-width-map {
+            min-width: 300px;
+        }
+
+        .override-width-bar {
+            min-width: 350px;
+        }
+
+        .base-border-frame {
+            margin-bottom: 2px;
+            margin-top: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: 2px solid #7597B6;
+            float: left;
+            min-height: 95%;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 5px;
+        }
+
+        .override-padding {
+            padding-left: 3px !important;
+            padding-right: 3px !important;
+        }
+
+        .jquery-flot-tooltip {
+            position: absolute;
+            display: none;
+            border: 1px solid #fdd;
+            padding: 2px;
+            background-color: #fee;
+            opacity: 0.95;
+            z-index: 500;
+        }
+
+
+        #flot-bar-cod-legends {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+            #flot-bar-cod-legends table {
+                margin: 0 auto;
+            }
+
+        #flot-bar-yield-legend {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+            #flot-bar-yield-legend table {
+                margin: 0 auto;
+            }
+
+        #flot-bar-cod-legends table {
+            margin: 0 auto;
+        }
+
+        #flot-bar-cod-legends > table > tbody > tr > .legendLabel,
+        #flot-bar-yield-legend > table > tbody > tr > .legendLabel {
+            padding: 0 20px 0 10px;
+        }
+
+        .legendColorBox > div {
+            padding: 0 !important;
+            border: 0px none !important;
+        }
+
+
+        .flot-notetip {
+            padding: 0;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .container-pie {
+            width: 25%;
+            height: 300px;
+            float: left;
+        }
+
+        .container-flot-pie {
+            width: 25%;
+            height: 150px;
+            float: left;
+        }
+
+        .legend-flot-pie {
+            padding-top: 5px;
+            width: 25%;
+            float: left;
+            /*text-align: center;*/
+            padding-left:44px;
+        }
+
+        .flot-pie-center {
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .legend-flot-pie table {
+            margin: 0 auto;
+            border-collapse: collapse !important;
+        }
+
+            .legend-flot-pie table tr td {
+                padding: 1px 4px;
+            }
+
+            .legend-flot-pie table tbody tr td > div > div {
+                border-radius: 3px;
+            }
+
+        .legend-flot-pie td {
+            font-size: 12px;
+        }
+
+        .underline {
+            margin-top: 5px;
+            margin-bottom: 0px;
+            height: 3px;
+            background-color: #980032;
+        }
+
+        .select-control {
+            width: 30%;
+            height: 34px;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #EBE7CD;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+
+        @media (min-width:1260px) {
+            .container-pie {
+                height: 308px;
+            }
+
+            .container-flot-pie {
+                height: 182px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:1350px) {
+            .container-pie {
+                height: 305px;
+            }
+
+            .container-flot-pie {
+                height: 140px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:1420px) {
+            .container-pie {
+                height: 310px;
+            }
+
+            .container-flot-pie {
+                height: 145px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:1580px) {
+            .container-pie {
+                height: 315px;
+            }
+
+            .container-flot-pie {
+                height: 155px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:1900px) {
+            .container-pie {
+                height: 320px;
+            }
+
+            .container-flot-pie {
+                height: 160px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:2500px) {
+            .container-pie {
+                height: 490px;
+            }
+
+            .container-flot-pie {
+                height: 240px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        @media (min-width:3800px) {
+            .container-pie {
+                height: 850px;
+            }
+
+            .container-flot-pie {
+                height: 360px;
+            }
+
+            .override-width-map {
+            }
+        }
+
+        .legend-item {
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+
+        .xaxis-unit {
+            font-size: 10px;
+            padding: 5px 0px 0px 8px;
+        }
+
+        .xaxis-unit-hour {
+            font-size: 10px;
+            padding: 5px 0 0 0;
+        }
+
+        .flot-xaxis-unit {
+            font-size: 10px;
+            position: absolute;
+            bottom: 60px;
+            right: 12px;
+            padding: 0 0 2px 0;
+            margin-right: -25px;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        .highcharts-credits {
+            display: none;
+        }
+
+        #region {
+            /*border: solid 1px #000;*/
+            border: 0 !important;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            padding-right: 14px;
+            background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+        }
+
+        .legend-pic {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            margin-right: 15px;
+            border-radius: 3px;
+        }
+    </style>
+
+
+    <link href="/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="/Content/animate.min.css" rel="stylesheet" />
+    <link href="/Content/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index">Solar Value</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="/Home/Index" class="dropdown-toggle" data-hover="dropdown">
+                            Home
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a id="projectOverView" href="/Project/List">Project List</a></li>
+                            
+                            <li><a href="/Fund/List">Fund List</a></li>
+                            <li><a href="/Schedule/List">Events</a></li>
+                            <li><a href="/Update/Index">Updates</a></li>
+                            <li><a href="/Home/Schedules">Schedules</a></li>
+                            
+                            <li><a href="/Home/OnMList">OMList</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#nogo" class="dropdown-toggle" data-hover="dropdown">
+                            Project
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a id="projectOverView" href="/Project/OverView">Overview</a></li>
+                            <li><a id="projectScheduleGantt" href="/Project/Schedule">Schedule</a></li>
+                            <li><a id="projectBudget" href="/Project/FinancialModelInput">Financial Model</a></li>
+                            <li><a id="projectOM" href="/Project/OnM">O&amp;M</a></li>
+                            <li><a id="projectAM" href="/Project/AnM">AM</a></li>
+                            <li><a id="projectAttachments" href="/Project/Attachments">Documents</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#nogo" class="dropdown-toggle" data-hover="dropdown">
+                            Fund
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="/Fund/Overview">Overview</a></li>
+                            
+                            <li><a href="/Fund/FinancialAnalysis">Financial Analysis</a></li>
+                            <li><a href="/Fund/Portfolio%20">Portfolio</a></li>
+                            <li><a href="/Fund/Documents">Documents</a></li>
+                            <li><a href="/Fund/TBD">TBD</a></li>
+                        </ul>
+                        
+                    </li>
+                    <li><a href="/News/Index">News</a></li>
+                    <li><a href="/">Solar Valueについて</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="lnkLang" data-lang="ja-JP" href="#nogo">日本語</a>
+                </ul>
+                <form action="/Account/LogOff" class="nav navbar-nav navbar-right" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="ftawXKgfq_vDJ8BccitBRD9Wv7r_rZRTv_vkFwUYlw7fcBXkpqnOV6zx7STGq546NW_uMwDzMuAbmcJAwfqs4j6gdMxqzj22CinazAP9_FF6hHBFpAmcTUhcpgcd8NRyT_m2JD6d1F30bnJCo9R-Sw2" />        <ul class="nav navbar-nav .navbar-right ~ .navbar-right">
+            
+
+            <li>
+                <a href="#nogo" class="dropdown-toggle" data-hover="dropdown">
+                    Hello ! panbo
+                    <b class="caret"></b>
+
+                </a>
+                
+                <ul class="dropdown-menu">
+                    <li><a href="/Manage/ChangePassword"><i class="glyphicon glyphicon-lock"></i>&nbsp;&nbsp;Change Password</a></li>
+                    
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="glyphicon glyphicon-off"></i>&nbsp;&nbsp;Logoff</a></li>
+                </ul>
+                
+            </li>
+            
+            <li>
+                <a href="/InnerMessage/List">Message<i id="nav-msg-item"></i></a>
+                <em id="nav-msg-icon"></em>
+            </li>
+
+        </ul>
+</form>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <div class="container body-content">
+        
+
+<div class="clearfix" style="margin-top:5px; min-height: 25px;">
+
+</div>
+<div class="row">
+    <div class="global-menu-left">
+        
+
+    <div class="menu-left-block">
+        <div class="menu-left-title">
+            <span>Home</span>
+            <span class="menu-plusminus">
+                <a href="#nogo" data-childmenu="0" class="leftpanel-menuslide">
+                    -
+                </a>
+            </span>
+        </div>
+
+        <div class="menu-left-content">
+            
+            <div class="menu-item-page show-anchor-list">
+                <ul>
+                    <li>
+<span>Home</span>                    </li>
+                </ul>
+            </div>
+            <hr />
+                    <div class="menu-item-anchor">
+                        <a href="#AnchorHomeAchieve">Achievements</a>
+                    </div>
+                    <div class="menu-item-anchor">
+                        <a href="#AnchorHomeEvent">Upcoming Events</a>
+                    </div>
+                    <div class="menu-item-anchor">
+                        <a href="#AnchorHomeUpdate">Recent Updates</a>
+                    </div>
+                    <div class="menu-item-anchor">
+                        <a href="#AnchorHomeNews">News</a>
+                    </div>
+                    <div class="menu-item-anchor">
+                        <a href="#AnchorHomeYield">Daily Energy Yield</a>
+                    </div>
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Project/List">Project List</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/List">Fund List</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Schedule/List">Events</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Update/Index">Updates</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Home/Schedules">Schedules</a> 
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="menu-left-block">
+        <div class="menu-left-title">
+            <span>Project</span>
+            <span class="menu-plusminus">
+                    <a href="#nogo" data-childmenu="1" class="leftpanel-menuslide">+</a>
+            </span>
+        </div>
+        <div class="menu-left-content hidden">
+                    <div class="menu-item-page">
+                        <ul>
+                            <li><a href="/Project/OverView/1">A06E Soo Minaminogo</a></li>
+                        </ul>
+
+                    </div>
+                    <hr />
+                <div class="menu-item-page">
+                    <ul>
+                        <li><a href="/Project/List">Project List</a></li>
+                    </ul>
+                </div>
+
+        </div>
+
+    </div>
+    <div class="menu-left-block">
+        <div class="menu-left-title">
+            <span>Fund</span>
+            <span class="menu-plusminus">
+                
+                    <a href="#nogo" data-childmenu="0" class="leftpanel-menuslide">
+                        +
+                    </a>
+            </span>
+        </div>
+
+        <div class="menu-left-content hidden">
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/Overview">Overview</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/FinancialAnalysis">Financial Analysis</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/Portfolio">Portfolio</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/Documents">Documents</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+            <div class="menu-item-page">
+                <ul>
+                    <li>
+<a href="/Fund/TBD">Tab_TBD</a> 
+                    </li>
+                </ul>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="menu-left-block">
+        <div class="menu-left-title">
+            <span>News</span>
+            <span class="menu-plusminus">
+                    <a href="/News/Index">+</a>
+            </span>
+        </div>
+    </div>
+    <div class="menu-left-block">
+        <div class="menu-left-title">
+                <a style="color:#333333;text-decoration:none;" href="/">Solar Valueについて</a>
+        </div>
+    </div>
+
+
+
+
+    </div>
+    <div class="global-content-right">
+        
+
+
+
+
+
+<!--float elements -->
+<div id='tooltip' class='jquery-flot-tooltip'></div>
+<!--visible content-->
+<div class="clearfix">
+
+    <div class="sectionTitleContainer" style="padding-left:15px;">
+        <span class="sectionTitle" id="AnchorHomeAchieve" style="font-size:15px;">Achievements</span>
+    </div>
+
+    <div class="col-xs-6 override-width-map">
+        <div style="position:absolute; padding: 20px 0 0 15px;">
+            <div class="box-title box-title-shadow">
+                <table>
+                    <thead><tr><th colspan="2"><span id="box-region">Japan</span></th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 70px;">Number</td>
+                            <td style="width: 70px;"><span id="box-count">92</span> Projects</td>
+                        </tr>
+                        <tr>
+                            <td>Capacity</td>
+                            <td><span id="box-capacity">956</span> MW</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div id="canvas-echart-map" style="height: 405px;width: 387px"></div>
+    </div>
+    <div class="clearfix col-xs-6">
+        <div class="sectionTitleContainer" style="padding-left:45px;">
+            <div style="height:30px;padding-left:13px;">
+                <span id="proj-title" style="color:#980032;font-size:20px;height:30px; text-shadow:2px 3px 5px #808080"></span>
+                <span class="sectionTitle">
+                    <select id="region" style="width:80px;height:30px;font-size:20px;outline:none; color:#980032;border:none;text-shadow:2px 3px 5px #808080;"></select>
+                </span>
+            </div>
+
+            <div id="partprojects" style="height: 359px;width: 387px">
+                <hr class="underline" style="margin-top:20px;" />
+                <table class="table table-responsive table-colorful" style="padding-top:2px;">
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td style="text-align:right;border-bottom:none; padding-top:15px;" colspan="4" class="override-pager"><a href="#nogo" id="prev">prev</a><a href="#nogo" id="next" style="padding-left:20px;">next</a></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 override-width-bar" style="padding-top:20px;">
+
+        
+        <div style="position:relative">
+            <div id="flot-bar-cod-chart" style="height:500px; padding: 20px 0 0 0;"></div>
+            <div class="flot-xaxis-unit" style="padding:0">(Year)</div>
+        </div>
+        <div id="flot-bar-cod-legends"></div>
+    </div>
+    
+
+    <!--pie chart-->
+    <div class="clearfix col-xs-6" style="padding-top:20px;padding-bottom: 25px; ">
+        <div class="clearfix" style="padding: 0 5px;">
+            <div class="clearfix">
+                <div id="flot-pie-region" class="container-flot-pie" style="width:50%;"></div>
+                <div id="flot-pie-fit" class="container-flot-pie" style="width:50%;"></div>
+            </div>
+            <div class="clearfix" style="margin-bottom:17px;">
+                <div class="legend-flot-pie" style="width:50%;"></div>
+                <div class="legend-flot-pie" style="width:50%;"></div>
+            </div>
+        </div>
+        <div class="clearfix" style="padding: 0 5px;">
+
+            <div id="flot-pie-status" class="container-flot-pie" style="width:50%;"></div>
+            <div id="flot-pie-scale" class="container-flot-pie" style="width:50%;"> </div>
+
+            <div class="legend-flot-pie" style="width:50%;"></div>
+            <div class="legend-flot-pie" style="width:50%;"></div>
+        </div>
+    </div>
+
+    <style type="text/css">
+    </style>
+    
+    <div class="col-xs-12" style="padding-top: 20px;">
+        <div>
+            <div class="text-left sectionTitleContainer">
+                <span class="sectionTitle" id="AnchorHomeEvent">Upcoming Events</span>
+                <span><a href="/Schedule/List" target="_blank" class="pull-right">More »</a></span>
+            </div>
+            <table class="table table-responsive table-colorful">
+                <thead>
+                    <tr>
+                        <th style="width: 121px;">No.</th>
+                        <th style="width: 160px;">Project Name</th>
+                        <th style="width: 218px;">Content</th>
+                        <th style="width: 143px;" class="text-nowrap">Due Date</th>
+                        <th style="width: 155px;" class="text-nowrap">Key Person</th>
+                        <th style="width:103px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Schedule/List?projectId=47" target="_blank">C46</a></td>
+                            <td style="padding-left: 8px;">鳥羽松尾</td>
+                            <td style="padding-left:8px;">負担金支払（最終）112,77..</td>
+                            <td class="text-nowrap" style="padding-left:4px;"><span class="glyphicon @*glyphicon-@item.Symbol*@"></span>&nbsp;2017-03-31</td>
+                            <td style="padding-left:8px;">大堀　菜穂子</td>
+                            <td style="padding-left:8px;">play</td>
+
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Schedule/List?projectId=47" target="_blank">C46</a></td>
+                            <td style="padding-left: 8px;">鳥羽松尾</td>
+                            <td style="padding-left:8px;">林地開発完了検査</td>
+                            <td class="text-nowrap" style="padding-left:4px;"><span class="glyphicon @*glyphicon-@item.Symbol*@"></span>&nbsp;2017-03-20</td>
+                            <td style="padding-left:8px;">後藤　親志</td>
+                            <td style="padding-left:8px;">play</td>
+
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12" style="padding-top: 20px;">
+        <div>
+            <div class="text-left sectionTitleContainer">
+                <span class="sectionTitle" id="AnchorHomeUpdate">Recent Updates</span>
+                <span class="pull-right">
+                    <a href="/Update/Index" target="_blank" class="pull-right">More »</a>
+                </span>
+            </div>
+            <table class="table table-responsive table-colorful">
+                <thead>
+                    <tr>
+                        <th style="width:121px;">No.</th>
+                        <th style="width:160px">Project Name</th>
+                        <th style="width:218px">Content</th>
+                        <th style="width: 143px;" class="text-nowrap">Date</th>
+                        <th style="width: 155px;" class="text-nowrap">Key PersonU</th>
+                        <th style="width:103px;">Type</th>
+                    </tr>
+                </thead>
+                <tbody id="ProjectUpdate">
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=22" target="_blank">B17</a></td>
+                            <td style="padding-left: 8px;">久保</td>
+                            <td style="padding-left:8px;" class="text-nowrap">EnergyYieldEst..</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-12-13</td>
+                            <td style="padding-left:8px;"></td>
+                            
+                            <td style="padding-left:8px;">概要</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=32" target="_blank">B09</a></td>
+                            <td style="padding-left: 8px;">苫小牧</td>
+                            <td style="padding-left:8px;" class="text-nowrap">建中ローン実行</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-18</td>
+                            <td style="padding-left:8px;">早川　徹</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=32" target="_blank">B09</a></td>
+                            <td style="padding-left: 8px;">苫小牧</td>
+                            <td style="padding-left:8px;" class="text-nowrap">融資契約</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-18</td>
+                            <td style="padding-left:8px;"></td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=32" target="_blank">B09</a></td>
+                            <td style="padding-left: 8px;">苫小牧</td>
+                            <td style="padding-left:8px;" class="text-nowrap">建中ローン実行</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-18</td>
+                            <td style="padding-left:8px;"></td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=32" target="_blank">B09</a></td>
+                            <td style="padding-left: 8px;">苫小牧</td>
+                            <td style="padding-left:8px;" class="text-nowrap">融資契約</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-18</td>
+                            <td style="padding-left:8px;"></td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=47" target="_blank">C46</a></td>
+                            <td style="padding-left: 8px;">鳥羽松尾</td>
+                            <td style="padding-left:8px;" class="text-nowrap">地上権設定登記申請</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-21</td>
+                            <td style="padding-left:8px;">大野　光宏</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=77" target="_blank">E63-1</a></td>
+                            <td style="padding-left: 8px;">白河1</td>
+                            <td style="padding-left:8px;" class="text-nowrap">分筆・測量</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-21</td>
+                            <td style="padding-left:8px;">大野　光宏</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=32" target="_blank">B09</a></td>
+                            <td style="padding-left: 8px;">苫小牧</td>
+                            <td style="padding-left:8px;" class="text-nowrap">土地売買契約（予約契約から本..</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-21</td>
+                            <td style="padding-left:8px;">大野　光宏</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=19" target="_blank">B03</a></td>
+                            <td style="padding-left: 8px;">亀山白木</td>
+                            <td style="padding-left:8px;" class="text-nowrap">地上権設定登記申請</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-21</td>
+                            <td style="padding-left:8px;">大野　光宏</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 8px;"><a href="/Update/Index?projectId=19" target="_blank">B03</a></td>
+                            <td style="padding-left: 8px;">亀山白木</td>
+                            <td style="padding-left:8px;" class="text-nowrap">農地転用許可申請</td>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-21</td>
+                            <td style="padding-left:8px;">大野　光宏</td>
+                            
+                            <td style="padding-left:8px;">スケジュール</td>
+                        </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="col-xs-12" style="padding-top: 20px;">
+        <div>
+            <div class="sectionTitleContainer">
+                <span class="sectionTitle" id="AnchorHomeNews">News</span>
+                <span class="pull-right"><a href="/News/Index">More &#187;</a></span>
+            </div>
+            <table class="table table-colorful">
+                <thead>
+                    <tr>
+                        <th style="width:121px;">Date</th>
+                        <th style="width:160px;">Category</th>
+                        <th>Title</th>
+                        <th style="width:258px">Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-12-20</td>
+                            <td style="padding-left:8px;">General</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/66">【JPEA】第9回公共産業部会</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">①        入札    ・入..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-12-09</td>
+                            <td style="padding-left:8px;">Others</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/65">【技術動向】「倍速施工で、FIT価格20円台でも事業性」 ..</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">シャープの稲田さんの記事です。  ..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-30</td>
+                            <td style="padding-left:8px;">Utility</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/64">【産業保安】＜重要＞電気事業法施工規則の一部改正について</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">電気事業法施工規則などの一部が改正..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-24</td>
+                            <td style="padding-left:8px;">METI</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/63">平成２８年度中の設備認定等に係る申請期限について（注意喚起..</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-11-10</td>
+                            <td style="padding-left:8px;">Others</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/62">【技術動向】「GE Powering the Future..</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">2016/11/4  に  GE ..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-31</td>
+                            <td style="padding-left:8px;">Utility</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/61">【系統接続】電力広域的運営推進機関のクレーム対応状況</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">電力広域的運営推進機関は  10/..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-26</td>
+                            <td style="padding-left:8px;">General</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/59">【JPEA】公共産業部会が開催されました</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;">①        プロファイによる..</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-25</td>
+                            <td style="padding-left:8px;">METI</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/56">【参考情報】太陽光発電競争力強化研究会について</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-25</td>
+                            <td style="padding-left:8px;">METI</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/57">【参考情報】風力発電競争力強化研究会</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap" style="padding-left:8px;">2016-10-25</td>
+                            <td style="padding-left:8px;">General</td>
+                            <td style="padding-left:8px;" class="text-nowrap"><a href="/News/Details/58">【参考情報】福島県の阿武隈山地&amp;沿岸部における再生可能エネ..</a></td>
+                            <td style="padding-left:8px;white-space:nowrap;"></td>
+                            
+                        </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12" style="padding-top: 20px;">
+        <div>
+            <div class="sectionTitleContainer">
+                <span class="sectionTitle" id="AnchorHomeYield">energy yield for COD Projects</span>
+            </div>
+
+            <div class="form-inline form-inline-yellow">
+                <div class="clearfix">
+                    <div class=" btn-group" id="codRadio" data-toggle="buttons" style="padding-left:5px;">
+                        <label class="btn btn-default active">
+                            <input type="radio" name="codspan" value="Daily" id="codDaily" checked="checked">Day
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="codspan" value="Monthly" id="codMonthly">Month
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="codspan" value="Yearly" id="codYearly">Year
+                        </label>
+                    </div>
+                    <div class=" input-group date" id="datetimepicker-yield" style="padding-left:5px;">
+                        <input name="yield-date-picker" id="yield-date-picker" class="form-control" type="text" size="12" style="padding-left:10px;" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    
+                    <span id="flot-bar-yield-sum" style="text-align: right; font-weight: bolder; padding-right: 10px;padding-bottom:10px;">Total:<span></span></span>
+
+                </div>
+            </div>
+
+            <div>
+                <div style="padding-top: 10px;position: relative;">
+                    <div id="flot-bar-yield-chart" style="height:400px;"></div>
+                    <div class="flot-xaxis-unit" id="flot-bar-yield-xas">(時)</div>
+                </div>
+            </div>
+            <div id="flot-bar-yield-legend" style="margin:20px 0 30px 0;"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+        <div id="divComments" class="comment_main" style="padding-top: 10px;">
+            <style type="text/css">
+    .comment_main textarea {
+        height: 120px;
+    }
+
+    .feedbacks {
+        margin-top: 10px;
+    }
+
+        .feedbacks .feedback:first-of-type {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+    .feebback_content {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+  
+</style>
+<div class="comment_main col-xs-12">
+    <form>
+        <a id="NewComment"></a>
+        <div class="row">
+            <div class="col-xs-12" style="padding-bottom:10px;">
+                <span class="sectionTitle">Comment:</span>
+            </div>
+            <div class="col-xs-12">
+                <textarea style="height:133px; width:100%" id="CommentContentId" name="CommentContentId"></textarea>
+            </div>
+        </div>
+        <div class="clearfix" style="margin-top:10px;">
+            <button class="btn btn-default pull-right" data-bind="click: submit" type="submit">Submit</button>
+            <div class="pull-right alert alert-success hide" style="padding:5px; margin-right:15px;"><i class="glyphicon glyphicon-ok"></i></div>
+        </div>
+    </form>
+    <ul class="feedbacks list-unstyled" data-bind="foreach: comments">
+        <li class="feedback">
+            <div class="subtitle">
+                <div class="pull-right"><a class="lnkReply" data-bind="click: $parent.reply" href="#nogo">Reply</a></div>               
+                <div data-bind="visible: IsOwner" class="pull-right" style="margin-right:20px;"><a class="lnkReply" data-bind="click: $parent.delete" href="#nogo">Delete</a></div>
+                <a data-bind="attr: {href: Id }, text: $index() + 1"></a>
+                <span class="feedback_date" data-bind="date: CreatedTime"></span>
+                <span class="feedback_creator" data-bind="text: Creator"></span>
+            </div>
+            <div class="feebback_content" data-bind="html: Content"></div>
+        </li>
+    </ul>
+    
+    <ul class="pager">
+        <li><a data-bind="visible: !isFirst(), click:prev" href="#nogo">Previous</a></li>
+        <li><a data-bind="visible: !isLast(), click: next" href="#nogo">Next</a></li>
+    </ul>
+   
+    
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        <hr />
+        <footer>
+            
+            <p style="font-weight:normal; text-align:right;">©Renewable Japan Co.,Ltd. All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script src="/bundles/jquery?v=gkWyJthHPtwkFjvHuNinBjchIfwLwc_KbE-H26J2kAI1"></script>
+
+    
+    
+    <script src="/bundles/jqueryval?v=liFQDLl2DYXeEfda_Lo9HxMCJUnZ2Adg-vEhq6ZMqpo1"></script>
+
+    <script src="/bundles/bootstrap?v=RqfFuN3hW2LUCJtq9veMrwhelfMLkXzEJcfCg8KqOrc1"></script>
+
+    <script type="text/javascript">
+    bootstrapButton = $.fn.button.noConflict();
+    $.fn.bootstrapBtn = bootstrapButton;
+    </script>
+    <script src="/Scripts/jquery-ui-1.11.4.js"></script>
+    <script src="/Scripts/knockout-3.3.0.js"></script>
+    <script src="/Scripts/underscore-min.js"></script>
+    <script src="/Scripts/jquery.cookie.js"></script>
+    <script src="/Scripts/select2.min.js"></script>
+    
+    
+    
+<script src="/Content/ueditor/ueditor.config.js"></script>
+<script src="/Content/ueditor/ueditor.all.min.js"></script>
+
+    
+    <script src="/Scripts/ECharts/echarts3.single_component.map.js"></script>
+    <script src="/Scripts/jsonify/jsonify.js"></script>
+    <script src="/Scripts/js-lambda/js-lambda.js"></script>
+    <script src="/Scripts/flot/jquery.flot.min.js"></script>
+    <script src="/Scripts/flot/jquery.flot.categories.min.js"></script>
+    <script src="/Scripts/flot/jquery.flot.resize.min.js"></script>
+    <script src="/Scripts/flot/jquery.flot.axislabels2.js"></script>
+    <script src="/Scripts/flot/jquery.flot.orderBars.js"></script>
+    <script src="/Scripts/flot/jquery.flot.pie.min.js"></script>
+    <script src="/Scripts/flot/jquery.flot.stack.min.js"></script>
+    <script src="/Scripts/locales/moment.ja.js"></script>
+    <script src="/Scripts/highcharts/highcharts.js"></script>
+    <script src="/Scripts/highcharts/modules/no-data-to-display.js"></script>
+    <script src="/Scripts/underscore.js"></script>
+    <!--prepare source data-->
+    <script type="text/javascript">
+        var barData =  [{"Region":"Tohoku","Prefecture":"Iwate","Year":2013,"CapacityCOD":0.0,"CapacityFC":1.815,"CapacitySecured":1.815,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2013,"CapacityCOD":0.0,"CapacityFC":1.815,"CapacitySecured":1.815,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Aomori","Year":2013,"CapacityCOD":0.0,"CapacityFC":1.815,"CapacitySecured":1.815,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2013,"CapacityCOD":0.0,"CapacityFC":1.815,"CapacitySecured":1.815,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2013,"CapacityCOD":1.0875,"CapacityFC":10.5435,"CapacitySecured":11.57964,"ProjectCountCOD":1,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2013,"CapacityCOD":0.0,"CapacityFC":10.5435,"CapacitySecured":11.57964,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2013,"CapacityCOD":0.0,"CapacityFC":10.5435,"CapacitySecured":11.57964,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Nara","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Shiga","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Kyoto","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2013,"CapacityCOD":1.68,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2013,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2014,"CapacityCOD":5.106725,"CapacityFC":12.985365,"CapacitySecured":10.55303,"ProjectCountCOD":3,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2014,"CapacityCOD":0.0,"CapacityFC":12.985365,"CapacitySecured":10.55303,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Tohoku","Prefecture":"Aomori","Year":2014,"CapacityCOD":0.0,"CapacityFC":12.985365,"CapacitySecured":10.55303,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2014,"CapacityCOD":0.0,"CapacityFC":12.985365,"CapacitySecured":10.55303,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2014,"CapacityCOD":0.0,"CapacityFC":6.763744,"CapacitySecured":4.640104,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2014,"CapacityCOD":0.0,"CapacityFC":6.763744,"CapacitySecured":4.640104,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2014,"CapacityCOD":0.0,"CapacityFC":6.763744,"CapacitySecured":4.640104,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2014,"CapacityCOD":2.205,"CapacityFC":2.205,"CapacitySecured":13.54488,"ProjectCountCOD":1,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Chubu","Prefecture":"Aichi","Year":2014,"CapacityCOD":0.0,"CapacityFC":2.205,"CapacitySecured":13.54488,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Kinki","Prefecture":"Mie","Year":2014,"CapacityCOD":1.68,"CapacityFC":1.8975,"CapacitySecured":3.1725749999999997,"ProjectCountCOD":1,"ProjectCountFC":4,"ProjectCountSecured":4},{"Region":"Kinki","Prefecture":"Nara","Year":2014,"CapacityCOD":0.0,"CapacityFC":1.8975,"CapacitySecured":3.1725749999999997,"ProjectCountCOD":0,"ProjectCountFC":4,"ProjectCountSecured":4},{"Region":"Kinki","Prefecture":"Shiga","Year":2014,"CapacityCOD":0.0,"CapacityFC":1.8975,"CapacitySecured":3.1725749999999997,"ProjectCountCOD":0,"ProjectCountFC":4,"ProjectCountSecured":4},{"Region":"Kinki","Prefecture":"Kyoto","Year":2014,"CapacityCOD":0.0,"CapacityFC":1.8975,"CapacitySecured":3.1725749999999997,"ProjectCountCOD":0,"ProjectCountFC":4,"ProjectCountSecured":4},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2014,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":1.1575199999999999,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Chugoku","Prefecture":"Okayama","Year":2014,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2014,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2014,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2014,"CapacityCOD":2.002,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2015,"CapacityCOD":12.32364,"CapacityFC":3.28944,"CapacitySecured":56.300439999999995,"ProjectCountCOD":2,"ProjectCountFC":5,"ProjectCountSecured":5},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2015,"CapacityCOD":1.02388,"CapacityFC":3.28944,"CapacitySecured":56.300439999999995,"ProjectCountCOD":1,"ProjectCountFC":5,"ProjectCountSecured":5},{"Region":"Tohoku","Prefecture":"Aomori","Year":2015,"CapacityCOD":0.0,"CapacityFC":3.28944,"CapacitySecured":56.300439999999995,"ProjectCountCOD":0,"ProjectCountFC":5,"ProjectCountSecured":5},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2015,"CapacityCOD":0.0,"CapacityFC":3.28944,"CapacitySecured":56.300439999999995,"ProjectCountCOD":0,"ProjectCountFC":5,"ProjectCountSecured":5},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2015,"CapacityCOD":16.219744,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":4,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2015,"CapacityCOD":0.0,"CapacityFC":11.339879999999999,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2015,"CapacityCOD":0.0,"CapacityFC":11.339879999999999,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2015,"CapacityCOD":3.7998749999999997,"CapacityFC":20.450734999999998,"CapacitySecured":31.52831,"ProjectCountCOD":5,"ProjectCountFC":8,"ProjectCountSecured":8},{"Region":"Kinki","Prefecture":"Nara","Year":2015,"CapacityCOD":0.0,"CapacityFC":20.450734999999998,"CapacitySecured":31.52831,"ProjectCountCOD":0,"ProjectCountFC":8,"ProjectCountSecured":8},{"Region":"Kinki","Prefecture":"Shiga","Year":2015,"CapacityCOD":0.0,"CapacityFC":20.450734999999998,"CapacitySecured":31.52831,"ProjectCountCOD":0,"ProjectCountFC":8,"ProjectCountSecured":8},{"Region":"Kinki","Prefecture":"Kyoto","Year":2015,"CapacityCOD":0.0,"CapacityFC":20.450734999999998,"CapacitySecured":31.52831,"ProjectCountCOD":0,"ProjectCountFC":8,"ProjectCountSecured":8},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2015,"CapacityCOD":1.1575199999999999,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2015,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2016,"CapacityCOD":2.26556,"CapacityFC":81.49111,"CapacitySecured":168.01492,"ProjectCountCOD":1,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2016,"CapacityCOD":2.41128,"CapacityFC":81.49111,"CapacitySecured":168.01492,"ProjectCountCOD":1,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Tohoku","Prefecture":"Aomori","Year":2016,"CapacityCOD":0.0,"CapacityFC":81.49111,"CapacitySecured":168.01492,"ProjectCountCOD":0,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2016,"CapacityCOD":0.0,"CapacityFC":81.49111,"CapacitySecured":168.01492,"ProjectCountCOD":0,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2016,"CapacityCOD":0.0,"CapacityFC":27.812,"CapacitySecured":27.812,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2016,"CapacityCOD":0.0,"CapacityFC":27.812,"CapacitySecured":27.812,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2016,"CapacityCOD":0.0,"CapacityFC":27.812,"CapacitySecured":27.812,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2016,"CapacityCOD":0.0,"CapacityFC":4.63866,"CapacitySecured":1.8,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Chubu","Prefecture":"Aichi","Year":2016,"CapacityCOD":0.0,"CapacityFC":4.63866,"CapacitySecured":1.8,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Mie","Year":2016,"CapacityCOD":6.9975000000000005,"CapacityFC":68.29453500000001,"CapacitySecured":136.67354,"ProjectCountCOD":5,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Kinki","Prefecture":"Nara","Year":2016,"CapacityCOD":0.0,"CapacityFC":68.29453500000001,"CapacitySecured":136.67354,"ProjectCountCOD":0,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Kinki","Prefecture":"Shiga","Year":2016,"CapacityCOD":0.0,"CapacityFC":68.29453500000001,"CapacitySecured":136.67354,"ProjectCountCOD":0,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Kinki","Prefecture":"Kyoto","Year":2016,"CapacityCOD":0.0,"CapacityFC":68.29453500000001,"CapacitySecured":136.67354,"ProjectCountCOD":0,"ProjectCountFC":10,"ProjectCountSecured":10},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2016,"CapacityCOD":0.0,"CapacityFC":1.82625,"CapacitySecured":3.16869,"ProjectCountCOD":0,"ProjectCountFC":2,"ProjectCountSecured":2},{"Region":"Chugoku","Prefecture":"Okayama","Year":2016,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":60.0,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kanto","Prefecture":"Gunma","Year":2016,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":3.25,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2016,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2016,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2017,"CapacityCOD":5.27524,"CapacityFC":178.61628,"CapacitySecured":6.396,"ProjectCountCOD":2,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2017,"CapacityCOD":27.8478,"CapacityFC":178.61628,"CapacitySecured":6.396,"ProjectCountCOD":1,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Aomori","Year":2017,"CapacityCOD":0.0,"CapacityFC":178.61628,"CapacitySecured":6.396,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2017,"CapacityCOD":43.129999999999995,"CapacityFC":178.61628,"CapacitySecured":6.396,"ProjectCountCOD":2,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2017,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2017,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2017,"CapacityCOD":0.8,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2017,"CapacityCOD":15.978539999999999,"CapacityFC":2.0,"CapacitySecured":0.0,"ProjectCountCOD":3,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2017,"CapacityCOD":1.224,"CapacityFC":2.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2017,"CapacityCOD":3.847585,"CapacityFC":110.83638,"CapacitySecured":2.8,"ProjectCountCOD":5,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Nara","Year":2017,"CapacityCOD":0.0,"CapacityFC":110.83638,"CapacitySecured":2.8,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Shiga","Year":2017,"CapacityCOD":0.0,"CapacityFC":110.83638,"CapacitySecured":2.8,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Kyoto","Year":2017,"CapacityCOD":0.0,"CapacityFC":110.83638,"CapacitySecured":2.8,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2017,"CapacityCOD":3.16869,"CapacityFC":1.34244,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2017,"CapacityCOD":0.0,"CapacityFC":60.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2017,"CapacityCOD":3.25,"CapacityFC":3.25,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2017,"CapacityCOD":0.0,"CapacityFC":2.6012399999999998,"CapacitySecured":2.6012399999999998,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Shikoku","Prefecture":"Kochi","Year":2017,"CapacityCOD":0.0,"CapacityFC":2.6012399999999998,"CapacitySecured":2.6012399999999998,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Tohoku","Prefecture":"Iwate","Year":2018,"CapacityCOD":17.16069,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":3,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2018,"CapacityCOD":30.274189999999997,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Aomori","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2018,"CapacityCOD":38.67536,"CapacityFC":28.488,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2018,"CapacityCOD":0.0,"CapacityFC":28.488,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2018,"CapacityCOD":0.0,"CapacityFC":28.488,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2018,"CapacityCOD":24.004184999999996,"CapacityFC":0.0,"CapacitySecured":15.0,"ProjectCountCOD":5,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Nara","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":15.0,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Shiga","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":15.0,"ProjectCountCOD":0,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Kinki","Prefecture":"Kyoto","Year":2018,"CapacityCOD":85.13888,"CapacityFC":0.0,"CapacitySecured":15.0,"ProjectCountCOD":2,"ProjectCountFC":1,"ProjectCountSecured":1},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2018,"CapacityCOD":2.6012399999999998,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2018,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2019,"CapacityCOD":45.474,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2019,"CapacityCOD":50.230999999999995,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Aomori","Year":2019,"CapacityCOD":50.94856,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":3,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2019,"CapacityCOD":72.6834,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":3,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2019,"CapacityCOD":4.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2019,"CapacityCOD":21.8592,"CapacityFC":15.0,"CapacitySecured":0.0,"ProjectCountCOD":2,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Nara","Year":2019,"CapacityCOD":29.99568,"CapacityFC":15.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Shiga","Year":2019,"CapacityCOD":14.7663,"CapacityFC":15.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Kyoto","Year":2019,"CapacityCOD":14.4408,"CapacityFC":15.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2019,"CapacityCOD":60.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2019,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Aomori","Year":2020,"CapacityCOD":12.003432,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2020,"CapacityCOD":28.488,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Nara","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Shiga","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Kyoto","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2020,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Iwate","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Miyagi","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Aomori","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Tohoku","Prefecture":"Fukushima","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Kagoshima","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Nagasaki","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kyushu","Prefecture":"Fukuoka","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Shizuoka","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chubu","Prefecture":"Aichi","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Mie","Year":2022,"CapacityCOD":15.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":1,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Nara","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Shiga","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kinki","Prefecture":"Kyoto","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Hokkaido","Prefecture":"Hokkaido","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Chugoku","Prefecture":"Okayama","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Kanto","Prefecture":"Gunma","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kagawa","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0},{"Region":"Shikoku","Prefecture":"Kochi","Year":2022,"CapacityCOD":0.0,"CapacityFC":0.0,"CapacitySecured":0.0,"ProjectCountCOD":0,"ProjectCountFC":0,"ProjectCountSecured":0}]; // Year, Region, CapacityCOD, CapacityFC, CapacitySecured
+        var fitData =  [{"Region":"Kinki","Capacity":55.2,"Number":3,"FIT":20},{"Region":"Tohoku","Capacity":9.9,"Number":2,"FIT":20},{"Region":"Kyushu","Capacity":100.0,"Number":2,"FIT":20},{"Region":"Chubu","Capacity":0.0,"Number":1,"FIT":20},{"Region":"Kinki","Capacity":15.0,"Number":1,"FIT":22},{"Region":"Kinki","Capacity":75.83638,"Number":4,"FIT":24},{"Region":"Chubu","Capacity":5.8,"Number":3,"FIT":24},{"Region":"Tohoku","Capacity":144.91235999999998,"Number":6,"FIT":24},{"Region":"Chugoku","Capacity":60.0,"Number":1,"FIT":24},{"Region":"Hokkaido","Capacity":8.0344,"Number":1,"FIT":24},{"Region":"Kinki","Capacity":14.25855,"Number":2,"FIT":27},{"Region":"Tohoku","Capacity":20.0,"Number":1,"FIT":27},{"Region":"Hokkaido","Capacity":2.49996,"Number":2,"FIT":32},{"Region":"Tohoku","Capacity":160.95183,"Number":9,"FIT":32},{"Region":"Kinki","Capacity":43.37424,"Number":11,"FIT":32},{"Region":"Chubu","Capacity":2.83866,"Number":1,"FIT":32},{"Region":"Kinki","Capacity":71.38083499999999,"Number":10,"FIT":36},{"Region":"Tohoku","Capacity":45.658482,"Number":8,"FIT":36},{"Region":"Chubu","Capacity":12.56388,"Number":2,"FIT":36},{"Region":"Hokkaido","Capacity":1.82625,"Number":1,"FIT":36},{"Region":"Kyushu","Capacity":58.42364,"Number":3,"FIT":36},{"Region":"Kanto","Capacity":3.25,"Number":1,"FIT":36},{"Region":"Shikoku","Capacity":2.6012399999999998,"Number":1,"FIT":36},{"Region":"Kyushu","Capacity":1.4,"Number":2,"FIT":39},{"Region":"Tohoku","Capacity":0.0,"Number":1,"FIT":39},{"Region":"Tohoku","Capacity":6.636725,"Number":4,"FIT":40},{"Region":"Kyushu","Capacity":26.046964,"Number":5,"FIT":40},{"Region":"Chubu","Capacity":2.205,"Number":1,"FIT":40},{"Region":"Chugoku","Capacity":1.68,"Number":1,"FIT":40},{"Region":"Kinki","Capacity":1.68,"Number":1,"FIT":40},{"Region":"Shikoku","Capacity":2.002,"Number":1,"FIT":40}];
+        var scaleData =  [{"Region":"Tohoku","Capacity":31.062405,"Number":14,"Scale":2},{"Region":"Kyushu","Capacity":9.251244,"Number":6,"Scale":2},{"Region":"Kyushu","Capacity":176.61935999999997,"Number":6,"Scale":1},{"Region":"Chubu","Capacity":12.06766,"Number":6,"Scale":2},{"Region":"Kinki","Capacity":23.827385,"Number":20,"Scale":2},{"Region":"Tohoku","Capacity":356.996992,"Number":17,"Scale":1},{"Region":"Hokkaido","Capacity":4.32621,"Number":3,"Scale":2},{"Region":"Kinki","Capacity":252.90261999999999,"Number":12,"Scale":1},{"Region":"Chubu","Capacity":11.339879999999999,"Number":2,"Scale":1},{"Region":"Chugoku","Capacity":60.0,"Number":1,"Scale":1},{"Region":"Chugoku","Capacity":1.68,"Number":1,"Scale":2},{"Region":"Hokkaido","Capacity":8.0344,"Number":1,"Scale":1},{"Region":"Kanto","Capacity":3.25,"Number":1,"Scale":2},{"Region":"Shikoku","Capacity":4.6032399999999996,"Number":2,"Scale":2}];
+        var statusData = [{"Region":"Tohoku","Capacity":6.636725,"Number":4,"Status":7},{"Region":"Kyushu","Capacity":15.183604,"Number":4,"Status":7},{"Region":"Chubu","Capacity":2.205,"Number":1,"Status":7},{"Region":"Kinki","Capacity":10.99078,"Number":10,"Status":1},{"Region":"Tohoku","Capacity":14.083079999999999,"Number":3,"Status":1},{"Region":"Kinki","Capacity":1.2750749999999997,"Number":2,"Status":7},{"Region":"Kinki","Capacity":18.350315,"Number":3,"Status":2},{"Region":"Hokkaido","Capacity":1.1575199999999999,"Number":1,"Status":7},{"Region":"Kinki","Capacity":48.426104999999993,"Number":5,"Status":3},{"Region":"Chubu","Capacity":14.17854,"Number":2,"Status":2},{"Region":"Tohoku","Capacity":72.715279999999993,"Number":6,"Status":3},{"Region":"Hokkaido","Capacity":1.82625,"Number":1,"Status":3},{"Region":"Tohoku","Capacity":71.895682,"Number":4,"Status":6},{"Region":"Tohoku","Capacity":183.7036,"Number":12,"Status":4},{"Region":"Tohoku","Capacity":39.02503,"Number":2,"Status":2},{"Region":"Hokkaido","Capacity":1.34244,"Number":1,"Status":2},{"Region":"Kinki","Capacity":196.00772999999998,"Number":11,"Status":4},{"Region":"Chubu","Capacity":5.8,"Number":4,"Status":4},{"Region":"Chugoku","Capacity":60.0,"Number":1,"Status":4},{"Region":"Kyushu","Capacity":129.888,"Number":5,"Status":4},{"Region":"Kyushu","Capacity":2.12364,"Number":1,"Status":1},{"Region":"Kyushu","Capacity":27.812,"Number":1,"Status":3},{"Region":"Chugoku","Capacity":1.68,"Number":1,"Status":6},{"Region":"Kinki","Capacity":1.68,"Number":1,"Status":6},{"Region":"Kyushu","Capacity":10.86336,"Number":1,"Status":6},{"Region":"Chubu","Capacity":1.224,"Number":1,"Status":1},{"Region":"Hokkaido","Capacity":8.0344,"Number":1,"Status":4},{"Region":"Kanto","Capacity":3.25,"Number":1,"Status":3},{"Region":"Shikoku","Capacity":2.6012399999999998,"Number":1,"Status":3},{"Region":"Shikoku","Capacity":2.002,"Number":1,"Status":6}];
+        var regions = [{"Key":"Hokkaido","Value":"Hokkaido"},{"Key":"Tohoku","Value":"Tohoku"},{"Key":"Kanto","Value":"Kanto"},{"Key":"Chubu","Value":"Chubu"},{"Key":"Kinki","Value":"Kinki"},{"Key":"Chugoku","Value":"Chugoku"},{"Key":"Shikoku","Value":"Shikoku"},{"Key":"Kyushu","Value":"Kyushu"},{"Key":"Okinawa","Value":"Okinawa"}];
+        var prefectures=[{"Key":"Hokkaido","Value":"Hokkaido"},{"Key":"Aomori","Value":"Aomori"},{"Key":"Iwate","Value":"Iwate"},{"Key":"Miyagi","Value":"Miyagi"},{"Key":"Akita","Value":"Akita"},{"Key":"Yamagata","Value":"Yamagata"},{"Key":"Fukushima","Value":"Fukushima"},{"Key":"Ibaraki","Value":"Ibaraki"},{"Key":"Tochigi","Value":"Tochigi"},{"Key":"Gunma","Value":"Gunma"},{"Key":"Saitama","Value":"Saitama"},{"Key":"Chiba","Value":"Chiba"},{"Key":"Tokyo","Value":"Tokyo"},{"Key":"Kanagawa","Value":"Kanagawa"},{"Key":"Niigata","Value":"Niigata"},{"Key":"Toyama","Value":"Toyama"},{"Key":"Ishikawa","Value":"Ishikawa"},{"Key":"Fukui","Value":"Fukui"},{"Key":"Yamanashi","Value":"Yamanashi"},{"Key":"Nagano","Value":"Nagano"},{"Key":"Gifu","Value":"Gifu"},{"Key":"Shizuoka","Value":"Shizuoka"},{"Key":"Aichi","Value":"Aichi"},{"Key":"Mie","Value":"Mie"},{"Key":"Shiga","Value":"Shiga"},{"Key":"Kyoto","Value":"Kyoto"},{"Key":"Osaka","Value":"Osaka"},{"Key":"Hyogo","Value":"Hyogo"},{"Key":"Nara","Value":"Nara"},{"Key":"Wakayama","Value":"Wakayama"},{"Key":"Tottori","Value":"Tottori"},{"Key":"Shimane","Value":"Shimane"},{"Key":"Okayama","Value":"Okayama"},{"Key":"Hiroshima","Value":"Hiroshima"},{"Key":"Yamaguchi","Value":"Yamaguchi"},{"Key":"Tokushima","Value":"Tokushima"},{"Key":"Kagawa","Value":"Kagawa"},{"Key":"Ehime","Value":"Ehime"},{"Key":"Kochi","Value":"Kochi"},{"Key":"Fukuoka","Value":"Fukuoka"},{"Key":"Saga","Value":"Saga"},{"Key":"Nagasaki","Value":"Nagasaki"},{"Key":"Kumamoto","Value":"Kumamoto"},{"Key":"Oita","Value":"Oita"},{"Key":"Miyazaki","Value":"Miyazaki"},{"Key":"Kagoshima","Value":"Kagoshima"},{"Key":"Okinawa","Value":"Okinawa"}];
+        var scales = {"0":"All","1":"UHV","2":"HV"};
+        var statusInfo = {"0":"All","1":"COD","2":"FC","3":"Secured","4":"Initial","5":"Terminated","6":"Purchase","7":"Sold"};
+        var projects=[];
+    </script>
+    <!--bind after loading-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#prev").click(function(){
+                currentpage--;
+
+                var link = '/Home/PageProject';
+                var city=$("#region").find("option:selected").val();
+                $.get(link,{Region:currentregion,page:currentpage},function(datas){
+                    var data=datas.data;
+                    if(currentpage==datas.totalPage)
+                    {
+                        $("#next").hide();
+                    }
+                    else
+                    {
+                        $("#next").show();
+                    }
+                    if(currentpage==1)
+                    {
+                        $("#prev").hide();
+                    }
+                    else
+                    {
+                        $("#prev").show();
+                    }
+                    $("#partprojects>table>tbody").html("");
+                    append_parttable("#partprojects",data);
+                })
+            })
+            $("#next").click(function(){
+                currentpage++;
+                var link = '/Home/PageProject';
+                var city=$("#region").find("option:selected").val();
+                $.get(link,{Region:currentregion,page:currentpage},function(datas){
+                    var data=datas.data;
+                    if(currentpage==datas.totalPage)
+                    {
+                        $("#next").hide();
+                    }
+                    else
+                    {
+                        $("#next").show();
+                    }
+                    if(currentpage==1)
+                    {
+                        $("#prev").hide();
+                    }
+                    else
+                    {
+                        $("#prev").show();
+                    }
+                    $("#partprojects>table>tbody").html("");
+                    append_parttable("#partprojects",data);
+                })
+            })
+
+            $("#tooltip").appendTo("body");
+            $('#yield-date-picker').datetimepicker({ format: 'YYYY-MM-DD', viewMode :'days',defaultDate: moment(), locale: 'en' });
+            $("#yield-date-picker").on("dp.change", function () {
+                refresh_yield();
+            });
+            //$("#cod-refresh").click(function(){
+            //    refresh_yield();});
+            $("input[name='codspan']").change(function(){refresh_calender();});
+            instanceEchartMap = echarts.init(document.getElementById('canvas-echart-map'));
+            instanceEchartMap.showLoading();
+
+            $.getJSON("/Content/japan.geo.json"+"?ver=20", function (receivedJson) {
+                // 异步加载 手动注册
+                instanceEchartMap.hideLoading();
+                dataMapJson = receivedJson;
+                ecMap_Sort();
+                ecMap_Draw();
+            });
+
+            $("#canvas-echart-map").click(function(event){
+                ecMap_Container_Callback(event);
+            });
+
+            refresh_yield();
+            setTimeout(function () {
+                $('#yield-date-picker').datepicker({
+                    "setDate": new Date(),
+                    "autoclose": true
+                });
+                refresh_yield();
+            }, 1000 * 60 * 30);
+
+        });
+    </script>
+    <!--overall refresh-->
+    <script type="text/javascript">
+        function selectedRegion(region){
+            if(region=="All")
+            {
+                $("#region").css("visibility","hidden");
+            }
+            else
+            {
+                $("#region").css("visibility","visible");
+            }
+            $(".legend-flot-pie").html(" ");
+            refresh_box(region);
+            refresh_barchart(region);
+            refresh_piechart(region);
+            refresh_proj(region);
+            refresh_select(region);
+            //flot_yield_add_notetips(); // unit for x-axis is in absolute position and offset should be re-calc after height changes
+        }
+    </script>
+
+    <!--sort data-->
+    <script type="text/javascript">
+
+        function append_select(selector,list)
+        {
+            $(selector).append('<option style="font-size:16px;" value="'+"All"+'">'+"All"+'</option>');
+            for(var i=0;i<list.length;i++)
+            {
+                $(selector).append('<option style="font-size:16px;" value="'+list[i].Key+'">'+list[i].Value+'</option>');
+            }
+        }
+
+        function refresh_select(region)
+        {
+            var link="../Common/Prefectures";
+            $.get(link,{region:region},function(data){
+                var list=[];
+                for(var i=0;i<data.length;i++)
+                {
+                    list.push(data[i].Value);
+                }
+                $("#region>option").remove();
+                append_select("#region",data);
+            })
+        }
+        $("#region").change(function(){
+            refresh_city();
+        })
+        function refresh_city(){
+            $("#prev").show();
+            $("#next").show();
+            var currentpage=1;
+            var link = '/Home/CityProject';
+            var city=$("#region").find("option:selected").val();
+
+            $.get(link,{Region:currentregion,City:city,page:currentpage},function(datas){
+                var data=datas.data;
+                if(currentpage==datas.totalPage)
+                {
+                    $("#next").hide();
+                }
+                else
+                {
+                    $("#next").show();
+                }
+                if(currentpage==1)
+                {
+                    $("#prev").hide();
+                }
+                else
+                {
+                    $("#prev").show();
+                }
+                if(data.length==0)
+                {
+                    $("#next").hide();
+                    $("#prev").hide();
+                }
+                //$("#partprojects>table>tfoot>tr>td").html("");
+                $("#partprojects>table>tbody").html("");
+                append_parttable("#partprojects",data);
+            })
+
+            $("#prev").click(function(){
+                currentpage--;
+                var link = '/Home/CityProject';
+                var city=$("#region").find("option:selected").val();
+                $.get(link,{Region:region,page:currentpage},function(datas){
+                    var data=datas.data;
+                    if(currentpage==datas.totalPage)
+                    {
+                        $("#next").hide();
+                    }
+                    else
+                    {
+                        $("#next").show();
+                    }
+                    if(currentpage==1)
+                    {
+                        $("#prev").hide();
+                    }
+                    else
+                    {
+                        $("#prev").show();
+                    }
+                    $("#partprojects>table>tbody").html("");
+                    append_parttable("#partprojects",data);
+                })
+            })
+            $("#next").click(function(){
+                currentpage++;
+                var link = '/Home/CityProject';
+                var city=$("#region").find("option:selected").val();
+                $.get(link,{Region:region,page:currentpage},function(datas){
+                    var data=datas.data;
+                    if(currentpage==datas.totalPage)
+                    {
+                        $("#next").hide();
+                    }
+                    else
+                    {
+                        $("#next").show();
+                    }
+                    if(currentpage==1)
+                    {
+                        $("#prev").hide();
+                    }
+                    else
+                    {
+                        $("#prev").show();
+                    }
+                    if(data.length==0)
+                    {
+                        $("#next").hide();
+                        $("#prev").hide();
+                    }
+                    $("#partprojects>table>tbody").html("");
+                    append_parttable("#partprojects",data);
+                })
+            })
+        }
+
+        function append_parttable(selector,list)
+        {
+            if(list.length==0)
+            {
+                $("#partprojects>table>tbody").append('<tr><td><div style="text-align:left;"><label style="font-weight:bold;font-size:20px;">'+"なし"+'</label></div></td></tr>');
+                //$("#partprojects>table>tfoot>tr>td").append('<div style="text-align:left;"><label style="font-weight:bold;font-size:20px;">'+"なし"+'</label></div>');
+            }
+            else
+            {
+                for(var j=0;j<list.length;j++)
+                {
+                    $("#partprojects>table>tbody").append('<tr>'+'</tr>');
+                }
+
+                $.each($(selector+" table tbody tr"),function(i,row){
+                    var Id=list[i].id.toString();
+                    $(row).append('<td style="padding-left:15px; width:20%;" class="text-nowrap">'+list[i].ProjectNumber+'</td>');
+                    $(row).append('<td style="padding-left:0px;width:50%;" class="text-nowrap">'+'<a '+' href=../Project/OverView/'+Id+'>'+list[i].ProjectName+'</td>');
+                    if(list[i].Status2==1)
+                    {
+                        $(row).append('<td style="padding-left:10px;color:#DCB690;width:20%;" class="text-nowrap">'+list[i].Status+'</td>');
+                    }
+                    else if(list[i].Status2==2)
+                    {
+                        $(row).append('<td style="padding-left:10px;color:#964049;width:20%;" class="text-nowrap">'+list[i].Status+'</td>');
+                    }
+                    else
+                    {
+                        $(row).append('<td style="padding-left:10px;width:20%; color:#CDCECF;" class="text-nowrap">'+list[i].Status+'</td>');
+                    }
+                    $(row).append('<td style="padding-left:5px;width:10%;" class="text-nowrap">'+'<a style="color:#9D4D53;"'+' href=../Project/OverView/'+Id+'>'+">"+'</td>');
+                });
+            }
+
+        }
+        var currentpage=1;
+        var currentregion="";
+        function refresh_proj(region){
+            $("#region").empty();
+            $("#prev").show();
+            $("#next").show();
+            currentregion=region
+            var link = '/Home/PageProject';
+            $.get(link,{Region:region,page:currentpage},function(datas){
+                var data=datas.data;
+                if(currentpage==datas.totalPage)
+                {
+                    $("#next").hide();
+                }
+                else
+                {
+                    $("#next").show();
+                }
+                if(currentpage==1)
+                {
+                    $("#prev").hide();
+                }
+                else
+                {
+                    $("#prev").show();
+                }
+                if(datas.totalPage==1)
+                {
+                    $("#next").hide();
+                    $("#prev").hide();
+                }
+                else{
+                    $("#next").show();
+                    $("#prev").show();
+                }
+                //$("#partprojects>table>tfoot>tr>td").html("");
+                $("#partprojects>table>tbody").html("");
+                append_parttable("#partprojects",data);
+            })
+
+
+        }
+
+
+        function groupData(rawData, groupKey, groupValue, regionKey, regionValue){
+            var data = {}
+            for(var i = 0; i< rawData.length; i++){
+                var d = rawData[i];
+                if( d[regionKey] == regionValue||regionValue == "All"){
+                    var groupKeyValue = d[groupKey].toString();
+                    if(!(groupKeyValue in data)){
+                        data[groupKeyValue] = 0;
+                    }
+                    var value = d[groupValue];
+                    data[groupKeyValue] += value;
+                }
+
+            }
+            return data;
+        }
+
+        function groupRegionData(rawData, groupKey, groupValue, regionKey, regionValue){
+            var data = {}
+            for(var i = 0; i< rawData.length; i++){
+                var d = rawData[i];
+                if( d[regionKey] == regionValue){
+                    var groupKeyValue = d[groupKey].toString();
+                    if(!(groupKeyValue in data)){
+                        data[groupKeyValue] = 0;
+                    }
+                    var value = d[groupValue];
+                    data[groupKeyValue] += value;
+                }
+                else if(regionValue == "All")
+                {
+                    var groupKeyValue = d["Region"].toString();
+                    if(!(groupKeyValue in data)){
+                        data[groupKeyValue] = 0;
+                    }
+                    var value = d[groupValue];
+                    data[groupKeyValue] += value;
+                }
+            }
+            return data;
+        }
+
+        function getStatusData(region){
+            return groupData(statusData, "Status", "Capacity", "Region", region);
+        }
+
+        function getStatusNumber(region){
+            return groupData(statusData, "Status", "Number", "Region", region);
+        }
+
+        function getScaleData(region){
+            return groupData(scaleData, "Scale", "Capacity", "Region", region);
+        }
+        function getScaleNumber(region){
+            return groupData(scaleData, "Scale", "Number", "Region", region);
+        }
+
+        function getRegionData(region){
+            return groupRegionData(barData, "Prefecture", "CapacityCOD", "Region", region);
+        }
+
+        function getRegionNumber(region){
+            return groupRegionData(barData, "Prefecture", "ProjectCountCOD", "Region", region);
+        }
+        /*
+        function getCodData(region){
+            return groupData(barData, "COD", "Capacity", "Region", region);
+        }
+        */
+
+        function getFitData(region){
+            return groupData(fitData, "FIT", "Capacity", "Region", region);
+        }
+        function getFitNumber(region){
+            return groupData(fitData, "FIT", "Number", "Region", region);
+        }
+
+
+    </script>
+
+    <!--draw EChart map-->
+    <script type="text/javascript">
+        var instanceEchartMap;
+        var dataMapJson = {};
+        var optionEchartMap = { }
+        var statusEchartMap = {
+            hover: "", // empty string or int(index of area index which mouse stop on)
+            lock: "", // empty string or region name which mouse last click on
+            area2region: {}, // area name to region name
+            region2area: {}, // region name to list of area index
+            log_frame_click: [],
+        };
+
+
+        function ecMap_Sort(){
+            for(var i = 0; i < dataMapJson.features.length; i++)
+            {
+                var ken = dataMapJson.features[i].properties;
+                if( typeof ken.region != 'undefined' && ken.region != null){
+                    statusEchartMap.area2region[ken.name] = ken.region;
+                    if(typeof statusEchartMap.region2area[ken.region] != 'undefined' && statusEchartMap.region2area[ken.region].length > 0){
+                        statusEchartMap.region2area[ken.region].push(i);
+                    }else{
+                        statusEchartMap.region2area[ken.region] = [];
+                        statusEchartMap.region2area[ken.region].push(i);
+                    }
+                }
+            }
+
+
+        }
+        function ecMap_Draw(){
+
+            instanceEchartMap.hideLoading();
+            // 异步加载 手动注册
+            echarts.registerMap('Japan', dataMapJson, {
+                // specialAreas http://echarts.baidu.com/api.html#echarts.registerMap
+                // if specialAreas is set, width or height cannot be 0 in order to avoid map missing after resize()
+                // better to delete islands from geo JSON
+            });
+            optionEchartMap = {
+                title: {
+                    show: false,
+                },
+
+                tooltip: {
+                    trigger: 'item',
+                    showDelay: 0,
+                    transitionDuration: 0.2,
+                    formatter: function (params) {
+                        var region = "";
+                        if( typeof params.data != 'undefined' && typeof statusEchartMap.area2region[params.data.name]  != 'undefined' ){
+                            region = statusEchartMap.area2region[params.data.name] ;
+                        }
+                        return translate_region(region);
+                    }
+                },
+                toolbox: {
+                    show: false,
+                },
+                series: [
+                    {
+                        // http://echarts.baidu.com/option.html#xAxis
+                        name: 'Japan Map Navigator',
+                        type: 'map',
+                        //roam: 'scale', //
+                        //zoom: 1.25,
+                        //scaleLimit: {min: 0.01, max: 100},
+                        map: 'Japan',
+                        selectedMode: false,
+                        itemStyle:{
+                            normal: {
+                                borderWidth:1,
+                                borderColor:'#F2EDD6',
+                                areaColor: '#C5BD98',
+                                label: {
+                                    show: false
+                                }
+                            },
+                            emphasis:{
+                                label:{show:false},
+                                areaColor: '#CE9995',
+                            }
+                        },
+                        left: 5,
+                        top: 5,
+                        right: 5,
+                        bottom: 5,
+                    }
+                ]
+            };
+            $(window).resize(function () {
+                instanceEchartMap.resize();
+            });
+            instanceEchartMap.setOption(optionEchartMap);
+            selectedRegion("All");
+            instanceEchartMap.on('mouseover', function (params) {
+                statusEchartMap.hover = params.dataIndex;
+                var region = "";
+                var region_dataIndex = [];
+                var key = params.data.name;
+                if( typeof statusEchartMap.area2region[params.data.name]  != 'undefined' ){
+                    region = statusEchartMap.area2region[params.data.name] ;
+                }
+                if(region == ""){return 0;}
+                if( typeof statusEchartMap.region2area[region]  != 'undefined' ){
+                    region_dataIndex = statusEchartMap.region2area[region] ;
+                }
+                instanceEchartMap.dispatchAction({
+                    type: 'downplay',
+                    seriesIndex: 0,
+                })
+                instanceEchartMap.dispatchAction({
+                    type: 'highlight',
+                    seriesIndex: 0,
+                    dataIndex: region_dataIndex,
+                })
+            });
+            instanceEchartMap.on('mouseout', function (params) {
+                statusEchartMap.hover = "";
+                var timer_release_hover = setTimeout(function(){
+                    if(statusEchartMap.hover == ""){
+
+                        instanceEchartMap.dispatchAction({
+                            type: 'downplay',
+                            seriesIndex: 0,
+                        });
+                    }
+                }, 500)
+            });
+            instanceEchartMap.on('click', function (params) {
+
+                var area = params.data.name;
+                var region = statusEchartMap.area2region[area];
+                var log = {};
+                if(statusEchartMap.lock != region){
+                    statusEchartMap.lock = region;
+                    ecMap_Unselect();
+                    ecMap_Select(region);
+                    log = {
+                        time: Date.now(),
+                        action: "click-map-select"
+                    }
+                }else{
+                    statusEchartMap.lock = "";
+                    ecMap_Unselect();
+                    log = {
+                        time: Date.now(),
+                        action: "click-map-unselect"
+                    }
+                }
+                statusEchartMap.log_frame_click.push(log);
+            });
+
+
+        }
+        function ecMap_Select(region){
+            var current_option = instanceEchartMap.getOption();
+            current_option.series[0].data = [];
+            for(var i = 0; i < dataMapJson.features.length; i ++){
+                var option_area = {
+                    name: dataMapJson.features[i].properties.name,
+                    itemStyle: {
+                        normal: { areaColor: "#C5BD98"}
+                    }
+                };
+                if(dataMapJson.features[i].properties.region == region){
+                    option_area = {
+                        name: dataMapJson.features[i].properties.name,
+                        itemStyle: {
+                            normal: { areaColor: "#CE9995"},
+                            emphasis:{areaColor: "#CE9995"},
+                        }
+                    };
+                }
+                current_option.series[0].data.push(option_area);
+            }
+            optionEchartMap = current_option;
+            instanceEchartMap.setOption(current_option);
+
+            selectedRegion(statusEchartMap.lock);
+        }
+
+        function ecMap_Unselect(){
+            var current_option = instanceEchartMap.getOption();
+            current_option.series[0].data = [];
+            for(var i = 0; i < dataMapJson.length; i ++){
+                var option_area = {
+                    itemStyle: {
+                        normal: { areaColor: "#C5BD98"}
+                    }
+                };
+                current_option.series[0].data.push(option_area);
+            }
+            optionEchartMap = current_option;
+            instanceEchartMap.setOption(current_option);
+            selectedRegion("All");
+        }
+
+        function ecMap_Container_Callback(event){
+            var last_click_record = {};
+            var timer_check_inside_click = setTimeout(function(){
+                last_click_record = statusEchartMap.log_frame_click[statusEchartMap.log_frame_click.length-1];
+                var log = {};
+                if(typeof last_click_record == 'undefined'
+                    || Date.now() - last_click_record.time > 250){
+                    // no click inside EChart instance recently
+                    log = {time: Date.now(), action: "outside-click"};
+                    ecMap_Unselect();
+                    statusEchartMap.log_frame_click.push(log);
+                }
+            }, 100)
+        }
+
+    </script>
+
+    <!--draw title box-->
+    <script type="text/javascript">
+
+        function refresh_box(region) {
+            $("#box-region").text(translate_region(region));
+            $("#flot-bar-cod-title").text(translate_region(region));
+            $("#proj-title").text(translate_region(region));
+            if (region == "All") {
+                $("#box-region").text("Japan");
+                $("#flot-bar-cod-title").text("Japan");
+                $("#proj-title").text("Japan");
+            }
+
+            var num = 0;
+            var cap = 0;
+
+            for(var i = 0; i< statusData.length; i ++){
+                var cRegion = statusData[i].Region;
+                if(region == "All" || cRegion == region){
+                    cap += statusData[i].Capacity;
+                    num += statusData[i].Number;
+                }
+            }
+            $("#box-count").text(num);
+            $("#box-capacity").text(cap.toFixed(0));
+        }
+    </script>
+
+    <!--draw jQuery.flot bar-->
+    <script type="text/javascript">
+        var instanceJqueryFlot;
+        var statusJqueryFlot = { };
+        var strXaxisTemplate = "Year 1234";
+
+        function refresh_barchart(region) {
+            statusJqueryFlot = {
+                years : [],
+                xseries : [],
+                series_cod : [],
+                series_fc : [],
+                series_secured : [],
+            };
+
+            var container = $("#flot-bar-cod-chart");
+
+            //var data = getCodData(global_region_selected);
+            var current_region = region;
+
+            for(var i = 0; i< barData.length; i++){
+                var rypairs = barData[i];
+                if( $.inArray(rypairs.Year, statusJqueryFlot.years) == -1 )
+                {
+                    statusJqueryFlot.years.push(rypairs.Year);
+                }
+            }
+            statusJqueryFlot.years = statusJqueryFlot.years.sort();
+            var index = 0;
+            for(var i = 0; i < statusJqueryFlot.years.length; i++){
+                var label = statusJqueryFlot.years[i];
+                statusJqueryFlot.xseries.push(label);
+                index++;
+            }
+
+            var index = 0;
+            for(var i = 0; i < statusJqueryFlot.years.length; i++){
+                var current_year = statusJqueryFlot.years[i];
+                var cod = 0.0;
+                var fc = 0.0;
+                var secure = 0.0;
+                for(var j = 0; j < barData.length; j++)
+                {
+                    if(barData[j].Region == current_region || current_region == "All")
+                    {
+                        if(barData[j].Year == current_year)
+                        {
+                            cod += barData[j].CapacityCOD;
+                            fc += barData[j].CapacityFC;
+                            secure += barData[j].CapacitySecured;
+                        }
+                    }
+                }
+                statusJqueryFlot.series_cod.push(cod);
+                statusJqueryFlot.series_fc.push(fc);
+                statusJqueryFlot.series_secured.push(secure);
+                index++;
+            }
+
+            var prefix = "Japan";
+            if(current_region != "All")
+            {
+                prefix =  translate_region(current_region) + " ";
+            }
+            var xaxisval = statusJqueryFlot.xseries
+            var series = [
+         {
+             name:'Secured Capacity',
+             data:statusJqueryFlot.series_secured,
+             zoneAxis:'x',
+             type:'column',
+             color:"#D9D9D9",
+         },
+        {
+            name:'FC Capacity',
+            data:statusJqueryFlot.series_fc,
+            zoneAxis:'x',
+            type:'column',
+            color: "#ECDCA8",
+        },
+          {
+              name:'COD Capacity',
+              data:statusJqueryFlot.series_cod,
+              zoneAxis:'x',
+              type:'column',
+              color:"#DBB690",
+          },
+
+            ]
+            instanceJqueryFlot = container.highcharts({
+                chart: {
+                    type: 'column',
+
+                },
+                title: {
+                    text: prefix,
+                    style: { "fontSize": "15px" }
+                },
+
+                xAxis: {
+                    categories: xaxisval,
+                },
+                yAxis: {
+                    title: {
+                        text: "(MW)",
+                        align: "high",
+                        rotation: 0,
+                        y: -10,
+                        offset: 10,
+                        margin: 20
+                    },
+                    stackLabels:{
+                        enabled : true,
+                        formatter : function () {
+                            return this.total.toFixed(1);
+                        }
+                    },
+                    labels:{
+                        formatter : function () {
+                            return format_thou_sep(this.value.toFixed(0));
+                        }},
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal',
+                        dataLabels:{
+                            enabled : false,
+                        },
+                        pointWidth:25,
+                    }
+                },
+                legend: {
+                    align: 'center',
+                    maxHeight: 60,
+                    enabled: true,
+                    squareSymbol:false,
+                    symbolRadius:0,
+                    symbolWidth:12,
+                    symbolHeight:12
+                },
+                series: series,
+                lang: {
+                    noData: "No Data"
+                },
+                noData: {
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        color: '#303030'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>MW<br/>',
+                    shared:true,
+                    valueDecimals: 2,
+                },
+            });
+        }
+        //function flot_bar_add_notetips(){
+        //    $(".flot-notetip").remove();
+        //    $(".xaxis-unit").remove();
+        //    // draw notetip
+        //    var positionDiv = instanceJqueryFlot.offset();
+        //    //console.debug(positionDiv)
+        //    var barWidthInUnits = instanceJqueryFlot.getOptions().series.bars.barWidth;
+        //    var barWidthInPixels = barWidthInUnits * instanceJqueryFlot.getXAxes()[0].scale;
+        //    var positionData = instanceJqueryFlot.p2c({x: statusJqueryFlot.years.length-1, y: 0 });
+        //    var heightData = [0,0];
+        //    var max = 0;
+        //    // http://jsfiddle.net/uXPkY/1/
+        //    // http://stackoverflow.com/questions/27524642/how-to-get-the-current-bar-width-of-flot-chart
+
+
+        //    for(var indexData = 0; indexData < statusJqueryFlot.years.length; indexData++){
+        //        heightData[1] = statusJqueryFlot.series_cod[indexData][1]
+        //                      + statusJqueryFlot.series_fc[indexData][1]
+        //                      + statusJqueryFlot.series_secured[indexData][1];
+        //        if(max< heightData[1]){max=heightData[1];}
+        //        positionData = instanceJqueryFlot.p2c({x: indexData, y: heightData[1] });
+        //        if(heightData[1] > 0.01 * max){
+        //            show_notetip(positionData.left+positionDiv.left,
+        //                    positionData.top+positionDiv.top-15,
+        //                    barWidthInPixels,
+        //                    heightData[1].toFixed(1));
+
+        //        }
+
+        //    }
+        //}
+        //function show_notetip(x,y,barwidth,contents, cssclass){
+        //    var width_expanded = 16;
+        //    var applied_css_class = typeof cssclass == "string" ? cssclass : "flot-notetip";
+        //    $('<div id="value" class="'+applied_css_class+'">' +  contents + '</div>').css( {
+        //        position: 'absolute',
+        //        display: 'none',
+        //        top: y,
+        //        left: x-0.5*barwidth-0.5*width_expanded,
+        //        width: barwidth+width_expanded,
+        //    }).appendTo("body").fadeIn(200);
+        //}
+    </script>
+
+    <!--draw EChart/jQuery.flot pie-->
+    <script type="text/javascript">
+
+        var unit = "Projects";
+        var unitYen = "Yen";
+        var current_language = "en-us"; //en-us, ja-jp
+        var groupFlotPieInstance = [];
+
+        var listColor = ['#CCCCCC', '#CC9898', '#980032',
+            '#E3DAB2', '#FFD965', '#986532',
+            '#DBB690', '#FFCCCC','#CC99CC',
+            '#a8998a', '#ff9933', '#b87ab8','#f53df5'];
+
+        $(window).resize(function(){
+            //selectedRegion("All");
+        });
+
+
+        function refresh_piechart(region) {
+            groupFlotPieInstance = []
+            // region: pieRegion pieoptionRegion
+            var regionData = getRegionData(region);
+            var regionCount = getRegionNumber(region);
+            var list = []
+            var data = [];
+            var tempData = [];
+            var a = 0;
+            for(var i in regionData){
+                var region_name = i;
+                var region_proj_count = regionCount[i];
+                var region_capacity = regionData[i].toFixed(0);
+                //var a = _.indexOf(regionData,i);
+                var color = listColor[a];
+                if(region=="All")
+                {
+                    var d = {name:translate_region(region_name),y:regionData[i],color:color};
+                    data.push(d);
+                }
+                else
+                {
+                    var d = {name:translate_prefecture(region_name),y:regionData[i],color:color};
+                    data.push(d);
+                }
+                a++;
+            }
+            data = data.sort(function(a,b){
+                return b.y - a.y;
+            })
+            var series = [{
+                data: data
+            }];
+            $(".container-flot-pie:eq(0)").highcharts({
+                chart: {
+                    type: 'pie',
+                    events:{
+                        load:function(){
+                            var chart = this;
+                            console.log(chart);
+                            $(chart.series[0].points).each(function(i,point){
+                                $("<span  class='legend-item'><span class='legend-pic' style='background-color:" + point.color + "'></span><a style='color: black ' class='legend-toggle' href='#nogo'>" + point.name + "</a></span>")
+                                .appendTo(".legend-flot-pie:eq(0)");
+                            })
+                        }
+                    }
+                },
+                title: {
+                    text: '地域',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y:7,
+                    style:{"fontSize":"15px","fontWeight":"bold"}
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: '75%',
+                        dataLabels:{
+                            enabled:false
+                        },
+                        showInLegend: false,
+                    }
+                },
+                series: series,
+                lang: {
+                    noData: "No Data"
+                },
+                noData: {
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        color: '#303030'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>MW<br/>',
+                    valueDecimals: 2,
+                    shared:true
+                },
+            });
+
+            // FIT: pieFIT pieoptionFIT
+            // hide zero
+
+            var list = []
+            var fData = []
+            var data = getFitData(region);
+            var countdata = getFitNumber(region);
+            var tempData = [];
+            var b = 0;
+            for(var i in data){
+                var color = listColor[b];
+                var f = {name:i,y:data[i],color:color};
+                fData.push(f);
+                b++;
+            }
+            fData = fData.sort(function(a,b){
+                return b.y - a.y
+            })
+
+            var seriesFIT = [{
+                data: fData
+            }];
+
+            $(".container-flot-pie:eq(1)").highcharts({
+                chart: {
+                    type: 'pie',
+                    events:{
+                        load:function(){
+                            var chart = this;
+                            $(chart.series[0].points).each(function(i,point){
+                                $("<span  class='legend-item'><span class='legend-pic' style='background-color:" + point.color + "'></span><a style='color:black' class='legend-toggle' href='#nogo'>" + point.name+"円"+ "</a></span>").appendTo(".legend-flot-pie:eq(1)");
+                            })
+                        }
+                    }
+                },
+                title: {
+                    text: 'FIT',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y:7,
+                    style:{"fontSize":"15px","fontWeight":"bold"}
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: '75%',
+                        dataLabels:{
+                            enabled:false
+                        },
+                        showInLegend: false,
+                    }
+                },
+                legend: {
+                    align: 'center',
+                    maxHeight: 60,
+                    enabled: true,
+                    squareSymbol:false,
+                    symbolRadius:0,
+                    symbolWidth:12,
+                    symbolHeight:12
+                },
+                series: seriesFIT,
+                lang: {
+                    noData: "No Data"
+                },
+                noData: {
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        color: '#303030'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>MW<br/>',
+                    valueDecimals: 2,
+                    shared:true
+                },
+            });
+
+            // Status: pieStatus pieoptionStatus
+
+            var list = []
+            var statusData = getStatusData(region);
+            var statusCount = getStatusNumber(region);
+            var c = 0;
+            for(var i in statusData){
+                var status_index = i;
+                var status_capacity = statusData[i];
+                if (status_capacity > 0.1) {
+                    var color = listColor[c];
+                    //var data = [translateStatus(status_index),status_capacity];
+                    var data = {name:translateStatus(status_index),y:status_capacity,color:color};
+                    list.push(data);
+                    c++;
+                }
+            }
+            list = list.sort(function(a,b){
+                return b.y - a.y;
+            })
+            var seriesStatus = [{
+                data: list
+            }];
+
+            $(".container-flot-pie:eq(2)").highcharts({
+                chart: {
+                    type: 'pie',
+                    events:{
+                        load:function(){
+                            var chart = this;
+                            $(chart.series[0].points).each(function(i,point){
+                                $("<span  class='legend-item'><span class='legend-pic' style='background-color:" + point.color + "'></span><a style='color:black' class='legend-toggle' href='#nogo'>" + point.name+"</a></span>").appendTo(".legend-flot-pie:eq(2)");
+                            })
+                        }
+                    }
+                },
+                title: {
+                    text: 'ステータス',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y:7,
+                    style:{"fontSize":"15px","fontWeight":"bold"}
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: '75%',
+                        dataLabels:{
+                            enabled:false
+                        },
+                        showInLegend: false,
+                    }
+                },
+                legend: {
+                    itemStyle:{
+                        'fontSize' : '10px',
+                    }
+                },
+                series: seriesStatus,
+                lang: {
+                    noData: "No Data"
+                },
+                noData: {
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        color: '#303030'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>MW<br/>',
+                    valueDecimals: 2,
+                    shared:true
+                },
+            });
+            // Scale: pieScale pieoptionScale
+            var list = []
+            var scaleData = getScaleData(region);
+            var scaleCount = getScaleNumber(region);
+            var d = 0;
+            for(var i in scaleData){
+                var scale_index = i;
+                var scale_capacity = scaleData[i];
+                if (scale_capacity > 0.1) {
+                    var color = listColor[d];
+                    //var data = [translateScale(scale_index),scale_capacity];
+                    var data = {name:translateScale(scale_index),y:scale_capacity,color:color};
+                    list.push(data);
+                    d++;
+                }
+            }
+            list = list.sort(function(a,b){
+                return b.y - a.y;
+            })
+            var seriesScale = [{
+                data: list
+            }];
+
+            $(".container-flot-pie:eq(3)").highcharts({
+                chart: {
+                    type: 'pie',
+                    events:{
+                        load:function(){
+                            var chart = this;
+                            $(chart.series[0].points).each(function(i,point){
+                                $("<span  class='legend-item'><span class='legend-pic' style='background-color:" + point.color + "'></span><a style='color:black' class='legend-toggle' href='#nogo'>" + point.name+ "</a></span>").appendTo(".legend-flot-pie:eq(3)");
+                            })
+                        }
+                    }
+                },
+                title: {
+                    text: '規模',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y:7,
+                    style:{"fontSize":"15px","fontWeight":"bold"}
+                },
+
+                plotOptions: {
+                    pie: {
+                        innerSize: '75%',
+                        dataLabels:{
+                            enabled:false
+                        },
+                        showInLegend: false,
+                    }
+                },
+                legend: {
+                    itemStyle:{
+                        'fontSize' : '10px',
+                    }
+                },
+                series: seriesScale,
+                lang: {
+                    noData: "No Data"
+                },
+                noData: {
+                    style: {
+                        fontWeight: 'bold',
+                        fontSize: '15px',
+                        color: '#303030'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>MW<br/>',
+                    valueDecimals: 2,
+                    shared:true
+                },
+            });
+
+            append_legend_columns(".legend-flot-pie:eq(3)", list);
+
+            //resize_flot_pie_title();
+
+        }
+
+
+        function data2name(data){
+            var names = [];
+            for(var i = 0; i < data.length; i++){
+                names.push(data[i].name);
+            }
+            return names;
+        }
+
+        function data2query(data){
+            var sum = 0;
+            var query = {};
+            for(var i = 0; i < data.length; i++){
+                sum = sum + parseFloat(data[i].value);
+            }
+            for(var i = 0; i < data.length; i++){
+                var percentage = parseFloat(data[i].value) / sum * 100;
+                percentage = percentage.toFixed(0);
+                query[data[i].name]= {
+                    value: format_thou_sep(data[i].value),
+                    pct: format_thou_sep(percentage)+"%",
+                    count: data[i].count,
+                };
+            }
+            return query;
+        }
+
+        function resize_flot_pie_title(){
+            $(".flot-pie-center").remove();
+            var titles = [
+                'Region',
+                'FIT',
+                'Status',
+                'Scale',
+            ]
+            for(var i =0; i < groupFlotPieInstance.length; i++){
+                var instance = groupFlotPieInstance[i];
+
+                $('<div id="value" class="flot-pie-center text-nowrap">'+titles[i]+'</div>').css( {
+                    position: 'absolute',
+                    top: instance.offset().top-1,
+                    left: instance.offset().left+85,
+                    //height: $(".container-flot-pie:eq(0)").height(),
+                    //width: $(".container-flot-pie:eq(0)").width(),
+                    height:0,
+                    width:0,
+                    'line-height':  $(".container-flot-pie:eq(0)").height()+"px",
+                }).appendTo("body");
+            }
+        }
+
+        function append_legend_columns(selector, list, suffix){
+            var sum = 0;
+            for( var index in list ) {
+                if( list.hasOwnProperty( index ) ) {
+                    sum += parseFloat( list[index].data );
+                }
+            }
+            $.each($(selector + " table tr"), function (i, row) {
+                if(typeof suffix == "string" ){
+
+                    var text = $(row).children().eq(1).text();
+                    var text3 = $(row).children().eq(3).text();
+                    text = text + suffix;
+                    text3=text3+suffix;
+                    $(row).children().eq(1).text(text);
+                    $(row).children().eq(3).text(text3);
+                }
+                //var pct = sum > 0.0001 ? (list[i].data / sum * 100).toFixed(0) : 0;
+                //$(row).append('<td align="right" class="text-nowrap">'+ list[i].count+" " +unit+'</td>');
+                //for (var j = 0; j < Math.floor((list[i].data.length-(1+j))/3); j++)
+                //{
+                //    list[i].data = list[i].data.substring(0,list[i].data.length-(4*j+3))+','+list[i].data.substring(list[i].data.length-(4*j+3));
+                //}
+                //$(row).append('<td align="right" class="text-nowrap">'+ list[i].data+"MW"+'</td>');
+            });
+        }
+
+        $(window).resize(function () {
+            resize_flot_pie_title()
+        });
+
+    </script>
+
+    <!--Energy Yield-->
+    <script type="text/javascript">
+        var instanceJqueryFlotYield;
+
+        function refresh_calender()
+        {
+            var isByDay=$("#codDaily").prop("checked");
+            var isByMonth=$("#codMonthly").prop("checked");
+            var isByYear=$("#codYearly").prop("checked");
+
+            function clearDatetimePicker(){
+                var data = $('#yield-date-picker').data("DateTimePicker");
+                if(!!data && data["destroy"]){
+                    data.destroy();
+                }
+            }
+
+            if(isByDay)
+            {
+                clearDatetimePicker()
+                $('#yield-date-picker').datetimepicker({ format: 'YYYY-MM-DD',viewMode :"days", defaultDate: moment(), locale: 'en' });
+            }
+            else
+                if(isByMonth)
+                {
+                    clearDatetimePicker()
+                    $('#yield-date-picker').datetimepicker({ format: 'YYYY-MM',viewMode :"months", defaultDate: moment(), locale: 'en' });
+                }
+                else if(isByYear)
+                {
+                    clearDatetimePicker()
+                    $('#yield-date-picker').datetimepicker({ format: 'YYYY',viewMode :"years", defaultDate: moment(), locale: 'en' });
+                }
+        }
+
+        function format_thou_sep(nStr) {
+            nStr += '';
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            return x1 + x2;
+        }
+
+        function refresh_yield() {
+            var total = 0;
+            var isByDay=$("#codDaily").prop("checked");
+            var isByMonth=$("#codMonthly").prop("checked");
+            var isByYear=$("#codYearly").prop("checked");
+
+            var container = $('#flot-bar-yield-chart');
+            if(isByDay)
+            {
+                $("#flot-bar-yield-xas").text("(時)");
+                var link = '/EnergyYield/HomeHourlyYield/' + Math.random().toString(36).substr(2);
+
+            }
+            else if(isByMonth)
+            {
+                $("#flot-bar-yield-xas").text("(日)");
+                var link = '/EnergyYield/HomeMonthlyYield/' + Math.random().toString(36).substr(2);
+            }
+            else if(isByYear)
+            {
+                $("#flot-bar-yield-xas").text("(月)");
+                var link = '/EnergyYield/HomeYearlyYield/' + Math.random().toString(36).substr(2);
+            }
+            var request={};
+            if(isByDay||isByMonth)
+            {
+                request = {date: $('#yield-date-picker').val()}
+            }
+            else
+            {
+                request = {date: $('#yield-date-picker').val()+"-01"}
+            }
+
+            var series = [];
+            var dX = [];
+
+            function DrawHomeChart(container,ydata,xdata,width,title,tip){
+                container.highcharts({
+                    chart: {
+                        type: 'column',
+                    },
+                    title: {
+                        text: '発電電力量',
+                        style:{ "color": "#FFFFFF" },
+                    },
+
+                    xAxis: {
+                        categories: xdata,
+                    },
+                    yAxis: {
+                        title: {
+                            text: title,
+                            align: "high",
+                            rotation: 0,
+                            y: -10,
+                            offset: 10,
+                            margin: 20
+                        },
+                        labels:{
+                            formatter : function () {
+                                return format_thou_sep(this.value.toFixed(0));
+                            }},
+                    },
+                    legend: {
+                        align: 'center',
+                        maxHeight: 60,
+                        enabled: true,
+                        squareSymbol:false,
+                        symbolRadius:0,
+                        symbolWidth:12,
+                        symbolHeight:12
+                    },
+                    plotOptions: {
+                        series: {
+                            pointWidth:width,
+                        }
+                    },
+                    series: ydata,
+                    lang: {
+                        noData: "No Data"
+                    },
+                    noData: {
+                        style: {
+                            fontWeight: 'bold',
+                            fontSize: '15px',
+                            color: '#303030'
+                        }
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.y}</b> '+tip+'<br/>',
+                        valueDecimals: 2,
+                    },
+                });
+            }
+
+            $.post(link, request, function (result, status) {
+                if(result.Code > 10){
+                    return 0;
+                }
+                series = [
+                    {
+                        name:'DC',
+                        data:result.DC,
+                        zoneAxis:'x',
+                        type:'column',
+                        // color:svGlobalSettings.charts.bars.fill.yellow,
+                        color:'#A21B46',
+                    },
+                    {
+                        name:'AC',
+                        data:result.AC,
+                        zoneAxis:'x',
+                        type:'column',
+                        //color:svGlobalSettings.charts.bars.fill.red,
+                        color:'#E3DAB3',
+                    }
+                ]
+
+                $.each(result.AC,function() {
+                    total += this;
+                });
+                if(isByDay)
+                {
+                    DrawHomeChart(container,series,result.Hour,16,"(kWh)","kWh");
+                    $("#flot-bar-yield-sum span").text(format_thou_sep(total.toFixed(0))+" kWh");
+                }
+                else if(isByMonth)
+                {
+                    DrawHomeChart(container,series,result.Day,10,"(kWh)","kWh");
+                    $("#flot-bar-yield-sum span").text(format_thou_sep(total.toFixed(0))+" kWh");
+                }
+                else if(isByYear)
+                {
+                    DrawHomeChart(container,series,result.Month,21,"(MW)","MW");
+                    $("#flot-bar-yield-sum span").text(format_thou_sep(total.toFixed(0))+" MW");
+                }
+            });
+        }
+
+    </script>
+
+    <!--Misc-->
+    <script type="text/javascript">
+
+
+        function translate_region(name) {
+
+            for(var i in regions){
+                var region = regions[i];
+                if(region.Key == name){
+                    return region.Value;
+                }
+            }
+            return name;
+
+        }
+        function translate_prefecture(name){
+            for(var i in prefectures){
+                var prefecture = prefectures[i];
+                if(prefecture.Key == name){
+                    return prefecture.Value;
+                }
+            }
+            return name;
+        }
+        function translateScale(name) {
+
+            return scales[name] || name
+
+        }
+
+        function translateStatus(name) {
+            return statusInfo[name] || statusInfo
+        }
+
+
+        function box_strip(result) {
+            result = result.replace(/[\r\n]/g, "");
+            result = result.replace(/(^\s*)|(\s*$)/g, "");
+            return result;
+        }
+
+
+        function format_date(unixtime) {
+            var result = "";
+            var date = new Date(unixtime * 1000);
+            result = result + date.toLocaleDateString();
+            return result;
+        }
+    </script>
+
+
+
+    <script src="/Scripts/comments.js?version=1.0"></script>
+
+    <script type="text/javascript">
+        $().ready(function () {
+            var setting = {
+                initialFrameHeight: 100,
+                toolbars: [['bold', 'italic', 'underline', 'fontborder', 'fontfamily', 'fontsize', 'forecolor', 'backcolor', 'insertimage', 'attachment']],
+                lang: "en"
+            };
+            window.ue = UE.getEditor('CommentContentId', setting);
+            $("#divComments").comment();
+            
+        })
+    </script>
+
+    
+    <script src="/Scripts/safs.js"></script>
+    <script type="text/javascript">
+        
+    if (!!!window.safs) {
+        window.safs = {}
+    }
+    window.safs.root = "/";
+    var lang = $.cookie("lang");
+    safs.lang = 'jp';
+    if (lang != "en-US") {
+        $.getScript("/Scripts/jquery.ui.datepicker-ja.min.js", function () {
+            $.datepicker.setDefaults($.datepicker.regional["ja"]);
+        safs.lang = 'en';
+    })
+    }
+
+        $(document).ready(function () {
+            $(".lnkLang").click(function () {
+                var lang = $(this).data("lang");
+                var href = window.location.href.replace(/#.+$/g, "");
+                if (href.indexOf("?") > -1) {
+                    href += "&lang=" + lang;
+                }
+                else {
+                    href += "?lang=" + lang;
+                }
+                window.location.href = href;
+            })
+
+            // unread message
+           freshMsg();
+           var _interval = setInterval(function () {
+               freshMsg();
+           }, 10000)
+
+           $(".menu-item-anchor a").click(function () {
+               var id = $(this).attr("href");
+               var top = $(id).offset().top;
+               var scrollTop = $(document).scrollTop();
+               var height = $(".navbar-fixed-top").height()+50;
+               debugger;
+               var s = top - height;
+               window.scrollTo(0, s)
+               return false;
+           })
+
+           $(".leftpanel-menuslide").click(function (action) {
+               var cuurent = $(action.target).text();
+
+               if (cuurent == "-") {
+                   $(action.target).closest(".menu-left-block").find(".menu-left-content").addClass("hidden");
+                   $(action.target).text("+");
+               }
+               else {
+                   var ends = action.target.href.match("#nogo$");
+                   if (ends == "#nogo") {
+                       $(".leftpanel-menuslide").text("+");
+                       $(action.target).text("-");
+                       $(".menu-left-content").addClass("hidden");
+                       $(action.target).closest(".menu-left-block").find(".menu-left-content").removeClass("hidden");
+                   }
+               }
+
+
+               
+           });
+
+        })
+
+
+        function freshMsg()
+        {
+            
+            var link = "/InnerMessage/CountMessage";
+            $.get(link, function (data) {
+                var nav_msg_text_container = $("#nav-msg-item").get(0);
+                var nav_msg_text = $(nav_msg_text_container).text();
+                nav_msg_text = nav_msg_text.replace(/\s*\(\d+\)/, "")
+                if (data.Code > 0) {
+                    nav_msg_text = nav_msg_text + " (" + data.Code + ")";
+                    $("#nav-msg-icon").removeClass("hidden");
+                    $("#nav-msg-icon").addClass("W_new_count");
+                    $("#nav-msg-icon").text(data.Code);
+                }
+                else {
+                    $("#nav-msg-icon").removeClass("W_new_count");
+                    $("#nav-msg-icon").addClass("hidden");
+                }
+                $(nav_msg_text_container).text(nav_msg_text);
+            });
+        }
+    </script>
+
+    
+    <script type="text/javascript">
+        (function ($, window, undefined) {
+            // outside the scope of the jQuery plugin to
+            // keep track of all dropdowns
+            var $allDropdowns = $();
+
+            // if instantlyCloseOthers is true, then it will instantly
+            // shut other nav items when a new one is hovered over
+            $.fn.dropdownHover = function (options) {
+
+                // the element we really care about
+                // is the dropdown-toggle's parent
+                $allDropdowns = $allDropdowns.add(this.parent());
+
+                return this.each(function () {
+                    var $this = $(this).parent(),
+                        defaults = {
+                            delay: 500,
+                            instantlyCloseOthers: true
+                        },
+                        data = {
+                            delay: $(this).data('delay'),
+                            instantlyCloseOthers: $(this).data('close-others')
+                        },
+                        options = $.extend(true, {}, defaults, options, data),
+                        timeout;
+
+                    $this.hover(function () {
+                        if (options.instantlyCloseOthers === true)
+                            $allDropdowns.removeClass('open');
+
+                        window.clearTimeout(timeout);
+                        $(this).addClass('open');
+                    }, function () {
+                        timeout = window.setTimeout(function () {
+                            $this.removeClass('open');
+                        }, options.delay);
+                    });
+                });
+            };
+
+            $('[data-hover="dropdown"]').dropdownHover();
+
+
+        })(jQuery, this);
+    </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+	<title>Home-rn-solutions</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background: url(body-bg.png);
+		}
+		a{
+			text-decoration: none;
+		}
+		li {
+		    display: list-item;
+		    text-align: -webkit-match-parent;
+		}
+		.clearfix:after{
+			content:".";display:block;height:0;clear:both;visibility:hidden
+		}
+		.clearfix{
+			*+height:1%;
+		}
+		.navbar-inverse {
+		    background-color: #222;
+		    border-color: #080808;
+		}
+		.navbar-fixed-top{
+    		border-width: 0 0 1px;
+		}
+		.navbar-fixed-top {
+		    position: fixed;
+		    right: 0;
+		    left: 0;
+		    z-index: 1030;
+		 }
+		 .navbar {
+		    min-height: 50px;
+		    margin-bottom: 25px;
+		    border: 1px solid transparent;
+		}
+		.container{
+			width: 1250px;
+		    padding-right: 15px;
+		    padding-left: 15px;
+		    margin-right: auto;
+		    margin-left: auto;
+		    height: 50px;
+		}
+		.navbar-brand{
+			display: block;
+		    float: left;
+		    height: 50px;
+		    font-size: 18px;
+		    line-height: 50px;
+		    color: #9d9d9d;
+		    text-decoration: none;
+		    padding-right: 15px;
+=		}
+		.navbar-nav {
+		    float: left;
+		    margin: 0;
+		}
+		.nav>li{
+			display: inline-block;
+			position: relative;
+		}  
+		.navbar-nav{
+			float: left;
+		}
+		li{
+			text-align: -webkit-match-parent;
+		}
+		.nav{
+			list-style: none;
+		}
+		.caret {
+		    display: inline-block;
+		    width: 0;
+		    height: 0;
+		    margin-left: 2px;
+		    vertical-align: middle;
+		    border-top: 4px dashed;
+		    border-top: 4px solid\9;
+		    border-right: 4px solid transparent;
+		    border-left: 4px solid transparent;
+		}
+		.nav-list{
+			float: left;
+			display: inline-block;
+			width: 81.78px;
+			line-height: 50px;
+			text-decoration: none;
+			color: #9d9d9d;
+			font-size: 13px;
+			padding-left: 15px;
+		}
+		.nav li>a{
+			float: left;
+			display: inline-block;
+			width: 81.78px;
+			line-height: 50px;
+			text-decoration: none;
+			color: #9d9d9d;
+			font-size: 13px;
+			padding-left: 15px;	
+		}
+		.nav li>a:hover{
+			color: #fff;
+		}
+		.nav-solarvalue{
+			width: 142.47px !important;
+		}
+		.navbar-right{
+			float: right!important;
+    		margin-right: -15px;
+		}
+		.nav-username{
+			width: 100px !important;
+		}
+		.dropdown-toggle:hover{
+			background-color: #080808;
+		}
+		.body-content{
+		    padding-left: 15px;
+		    padding-right: 15px;
+		    position: relative;
+		    top: 80px;
+		}
+		.row {
+		    margin-right: -15px;
+		    margin-left: -15px;
+		}
+		.menu-left {
+		    width: 247px;
+		    position: fixed;
+		    top: 75px;
+		    min-height: 750px;
+		    padding-right: 12px;
+		    padding-left: 12px;
+		}
+		.menu-left-block{
+			width: 100%;
+			padding-bottom: 10px;
+		}
+		.menu-left-title{
+			width: 100%;
+			background-color: #ebe7cd;
+			height: 62px;
+			padding: 20px 15px 20px 35px;
+			font-size: 14px;
+			font-weight: bold;
+
+		}
+		.menu-plusminus{
+		    background-color: #fff;
+		    width: 20px;
+		    border-style: solid;
+		    border-width: 2px;
+		    border-color: #e3dab2;
+		    color: #e3dab2;
+		    display: block;
+		    float: right;
+		    text-align: center;
+		}
+		.menu-plusminus a {
+		    color: #e3dab2;
+		    text-decoration: none;
+		    outline: none;
+		    display: block;
+		}
+		.menu-left-content{
+			width: 100%;
+			background-color: #fff;
+			padding: 0;
+		}
+		.menu-item-page{
+		 	padding: 6px 10px 10px 10px;
+		 	font-size: 13px;
+		}
+		.menu-item-page>ul{
+			margin: 0;
+			padding: 0;
+			list-style: square inside url(red_dot.png);
+		}
+		.menu-item-page>ul>li {
+		    padding: 10px 5px 0 15px;
+		}
+		.menu-item-page>ul>li a{
+		    color: #000;
+		}
+		.menu-left-content hr{
+		    border: 0;
+		    border-bottom: 2px dashed #ebe7cd;
+		    background: #fff;
+		    margin-top: 0;
+		    margin-bottom: 0;
+		}
+		.dropdown-menu{
+			position: absolute;
+			top: 100%;
+			left: 0px;
+			min-width: 120px;
+			padding: 5px 0px;
+			margin: 0px 0 0;
+			font-size: 14px;
+			text-align: left;
+			list-style: none;
+			background-color: #fff;
+		    -webkit-background-clip: padding-box;
+		    background-clip: padding-box;
+		    border: 1px solid #ccc;
+		    border: 1px solid rgba(0,0,0,.15);
+		    border-radius: 4px;
+		    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		}
+		.dropdown-menu>li>a {
+		    color: #333 !important;
+		    line-height: 30px !important;
+		    font-weight: 400 !important;
+		    line-height: 1.42857143 !important;
+		    white-space: nowrap !important;
+		    font-size: 14px !important;
+		    padding: 3px 20px !important;
+		    width: 100% !important;
+		    text-align: left !important;
+		}
+		.dropdown:hover ul{
+			display: block !important;
+		}
+		.dropdown:hover ul a:hover{
+			    background-color: #f5f5f5;
+		}
+		.dropdown-menu .drop-1{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<a href="#" class="navbar-brand">Solar Value</a>
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-list list-1" href="#">项目管理
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu drop-1" style="display: none;">
+						<li>
+							<a href="#" >项目决策</a>
+						</li>
+						<li>
+							<a href="#" >项目初始</a>
+						</li>						
+						<li>
+							<a href="#" >项目发行</a>
+						</li>													
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-list" href="#" style="width:92px;background-color: #000">CRM系统
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" style="display: none;">
+						<li>
+							<a href="#" >客户管理</a>
+						</li>
+						<li>
+							<a href="#" >事件管理</a>
+						</li>								
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-list" href="#">基金管理
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" style="display: none;">
+						<li>
+							<a href="#" >基金设立</a>
+						</li>
+						<li>
+							<a href="#" >运营基金</a>
+						</li>
+						<li>
+							<a href="#" >TA管理</a>
+						</li>															
+					</ul>					
+				</li>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-list" href="#">系统管理
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" style="display: none;">
+						<li>
+							<a href="#" >系统设置</a>
+						</li>
+						<li>
+							<a href="#" >用户管理</a>
+						</li>
+						<li>
+							<a href="#" >权限管理</a>
+						</li>
+					</ul>																					
+				</li>														
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-username" href="#">Hello! xxx
+						<b class="caret"></b>
+					</a>
+				</li>
+				<li>
+					<a  href="#">Message
+					</a>
+				</li>
+				<li>
+					<a  href="#">日本語
+					</a>
+				</li>				
+			</ul>
+		</div>
+	</div>
+	<div class="container body-content">
+		<div class="row">
+			<div class="menu-left">
+				<div class="menu-left-block">
+					<div class="menu-left-title">
+						<div class="content">
+							<span>客户管理</span>
+							<span class="menu-plusminus">
+								<a href="#">-</a>
+							</span>
+						</div>
+					</div>
+					<div class="menu-left-content">
+						<div class="menu-item-page">
+							<ul>
+								<li><a href="#">客户列表</a></li>
+							</ul>
+						</div>
+						<hr>
+						<div class="menu-item-page">
+							<ul>
+								<li><a href="#">详情查询</a></li>
+							</ul>
+						</div>
+						<hr>
+						<div class="menu-item-page">
+							<ul>
+								<li><a href="#">客户分组</a></li>
+							</ul>
+						</div>
+						<hr>																					
+					</div>
+				</div>
+				<div class="menu-left-block">
+					<div class="menu-left-title">
+						<div class="content">
+							<span>事件管理</span>
+							<span class="menu-plusminus">
+								<a href="#">+</a>
+							</span>
+						</div>
+					</div>
+					<div class="menu-left-content" style="display: none;">
+						<div class="menu-item-page">
+							<ul>
+								<li><a href="#">事件列表</a></li>
+							</ul>
+						</div>
+						<hr>
+						<div class="menu-item-page">
+							<ul>
+								<li><a href="#">接触记录</a></li>
+							</ul>
+						</div>
+						<hr>			
+					</div>
+				</div>								
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// // 实现下拉列表功能
+			// $(".dropdown-toggle").hover(
+			// 	function () {
+			// 	$(this).next().css({
+			// 		display: 'block',});
+			// });
+			// $(".dropdown-menu").mouseleave(
+			// 	function () {
+			// 	$(this).css({
+			// 		display: 'none',});
+			// });
+			$('.menu-plusminus').click(function(){
+				var plusminus = $(this).children().html();
+				if (plusminus=='+') {
+					$(this).parent().parent().next().css({
+						display: 'block',
+					});
+					$(this).children().html('-');
+				}
+				else {
+					$(this).parent().parent().next().css({
+						display: 'none',
+					});
+					$(this).children().html('+');		
+				}
+			})
+		});
+	</script>
+</body>
+</html>
